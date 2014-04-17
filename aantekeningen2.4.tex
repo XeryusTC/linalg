@@ -1,0 +1,76 @@
+\section{Blokmatrices (\S2.4)}
+\paragraph{Voorbeeld} 
+\[ A = \left(\!\begin{array}{rr|r} 2 & 5 & 0 \\
+-3 & -7 & 0 \\
+\hline
+0 & 0 & 2 \end{array}\!\right) \]
+
+In het algemeen:
+\[ A = \begin{pmatrix} A_{11} & A_{12} \\
+A_{21} & A_{22} \end{pmatrix} \]
+Hierbij mag $A_{ij}$ ook een getal zijn, het hoeft dus geen matrix te zijn.
+
+\[ \vec{b} \]
+\[ A \vec{b} = \left(\!\begin{array}{rr|r} 2 & 5 & 0 \\
+-3 & -7 & 0 \\ \hline
+0 & 0 & 2 \end{array}\!\right) \begin{vect} 1 \\ 2 \\ \hline 3 \end{vect} = \begin{vect} \begin{pmatrix*}[r] 2 & 5 \\ -3 & -7 \end{pmatrix*} \begin{vect} 1 \\ 2 \end{vect} + \begin{vect} 0 \\ 0 \end{vect} \cdot 3 \\
+\begin{pmatrix} 0 & 0 \end{pmatrix} \begin{vect} 1 \\ 2 \end{vect} + 2 \cdot 3
+\end{vect} = \begin{vect} 12 + 0 \\ -17 + 0 \\ 0 + 6 \end{vect} =
+\begin{vect} 12 \\ -17 \\ 6 \end{vect} \]
+
+\subsection{Diagonaal blokmatrix}
+\[A = \begin{pmatrix} A_{11} & \sigma \\
+\sigma & A_{22} \end{pmatrix}, A_{11} = \begin{pmatrix*}[r] 2 & 5 \\ -3 & -7 \end{pmatrix*}, A_{22} = 2 \]
+\[ A^2 = \begin{pmatrix} A_{11}^2 & \sigma \\
+\sigma & A_{22}^2 \end{pmatrix} = \begin{pmatrix} \begin{pmatrix*} 2 & 5 \\ -3 & -7 \end{pmatrix*}^2 & \sigma \\
+\sigma & 4 \end{pmatrix} \]
+\[ A^{-1} = \begin{pmatrix} A_{11}^{-1} & \sigma \\
+\sigma & A_{22}^{-1} \end{pmatrix} = \left(\!\begin{array}{rr|r} 7 & -5 & 0 \\
+3 & 2 & 0 \\ \hline
+0 & 0 & \sfrac{1}{2} \end{array}\!\right), A_{11}^{-1} = \frac{1}{-14+15} \begin{pmatrix*}[r] 7 & -5 \\ 3 & 2 \end{pmatrix*} = \begin{pmatrix*} 7 & -5 \\ 3 & 2 \end{pmatrix*} \]
+
+\paragraph{Voorbeeld} Geen diagonaal blokmatrix?
+$A = \begin{pmatrix} A_{11} & A_{12} \\
+A_{21} & A_{22} \end{pmatrix}$ Wat is $A^{-1}$? Zoek $B$ zodanig dat $AB=I$
+\[\begin{pmatrix} A_{11} & A_{12} \\
+\sigma & A_{22} \end{pmatrix} \begin{pmatrix} B_{11} & B_{22} \\
+B_{21} & B_{22} \end{pmatrix} = \begin{pmatrix}
+I & \sigma \\ \sigma & I \end{pmatrix} \]
+Na uitvermenigvuldigen krijg je:
+\begin{eqnarray*}
+	A_{11}B_{11} + A_{12}B_{21} &=& I \\
+	A_{11}B_{12} + A_{12}B_{22} &=& \sigma \\
+	\sigma B_{11} + A_{22}B_{21} &=& A_{22}B_{21} = \sigma \\
+	\sigma B_{12} + A_{22}B_{22} &=& A_{22}B_{22} = I
+\end{eqnarray*}
+Werk dit als volgt uit:
+\begin{enumerate}
+	\item \begin{eqnarray*}
+		A_{22}B_{21} &=& \sigma \\
+		A_{22}^{-1}A_{22}B_{21} &=& A_{22}^{-1} \sigma \\
+		B_{21} &=& \sigma
+	\end{eqnarray*}
+	
+	\item \begin{eqnarray*}
+		A_{11}B_{11} + A_{12}B_{21} &=& I \\
+		A_{11}B_{11} &=& I \\
+		A_{11}^{-1}A_{11}B_{11} &=& A_{11}^{-1}I \\
+		B_{11} &=& A_{11}^{-1}
+	\end{eqnarray*}
+	
+	\item \begin{eqnarray*}
+		A_{22}B_{22} &=& I \\
+		A_{22}^{-1}A_{22}B_{22} &=& A_{22}^{-1}I \\
+		B_{22} &=& A_{22}^{-1}
+	\end{eqnarray*}
+	
+	\item \begin{eqnarray*}
+		A_{11}B_{12} + A_{12}B_{22} &=& \sigma \\
+		A_{11}B_{12} + A_{12}A_{22}^{-1} &=& \sigma \\
+		A_{11}B_{12} &=& -A_{12}A_{22}^{-1} \\
+		B_{12} &=& -A_{11}^{-1}A_{12}A_{22}^{-1}
+	\end{eqnarray*}
+\end{enumerate}
+\[ B = \begin{pmatrix} A_{11}^{-1} & A_{11}^{-1}A_{12}A_{22}^{-1} \\
+\sigma & A_{22}^{-1} \end{pmatrix} = A^{-1} \]
+Het berekenen van $A^{-1}$ hoeft dus niet altijd makkelijker te zijn op deze manier!

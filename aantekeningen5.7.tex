@@ -1,0 +1,203 @@
+\section{Gewone differentiaal vergelijkingen (\S5.7)}
+\subsection{Herhaling calculus}
+\subsubsection{Eerstegraads differentiaal vergelijking}
+\begin{eqnarray*}
+	\left\{ \begin{array}{l}
+		y'(x) = 3 y(x) \\
+		y(0) = 2
+	\end{array}\right. \to y(x) &=& e^{\lambda x} \\
+	y'(x) &=& \lambda e^{\lambda x} \\
+	\lambda e^{\lambda x} &=& 3e^{\lambda x} \to \lambda = 3
+\end{eqnarray*}
+Algemene oplossing: $y(x) = c \cdot e^{3\lambda x} \to y(0) = c \cdot e^0 = c = 2$ \\
+$y(x) = 2e^{3x}$
+
+\subsubsection{Tweedegraads differentiaal vergelijking}
+$\begin{array}{ll}
+y''+ 4y'+3y = 0 \quad & y=e^{\lambda x} \\
+& y'=\lambda e^{\lambda x} \\
+& y'' = \lambda^2 e^{\lambda x}
+\end{array}$ \\
+$\lambda^2 + 4\lambda + 3 = 0$ \\
+$\lambda = -3 \vee \lambda = -1 \to y_1=e^{-3x}, y_2=e^{-x}$ \\
+Algemene oplossing: $y(x) = c_1 e^{-3x} + c_2 e^{-x}$
+\\ \\
+$y'' + 4 y' + 5y=0 \quad y=e^{\lambda x}$ \\
+$\lambda^2 + 4\lambda + 5 = 0 \to \lambda = 2 \pm 2i$ \\
+$y_1(x) = e^{2x} \cos 2x$ \\
+$y_2(x) = e^{2x} \sin 2x$ \\
+Algemene oplossing: $y(x) = c_1 e^{2x} \cos2x + c_2 e^{2x} \sin 2x$
+\\ \\
+$\left\{ \begin{array}{l}
+	y' = 3y + 6x
+	y(0) = - \sfrac{2}{3}
+\end{array}\right.$ \\
+Eerst de homogene vergelijking oplossen:
+$y' = 3y \to y_h(x) = c \cdot e^{3x}$ \\
+Daarna de particuliere oplossing: $y = a+bx$ \\
+$y_p(x) = - \sfrac{2}{3} - 2x$ \\
+Totale oplossing: $y(x) = y_h(x) + y_p(x)$
+
+\subsection{Stelsel differentiaalvergelijkingen}
+Het gekoppeld stelsel differentiaal vergelijkingen:
+$\left\{ \begin{array}{l}
+	y_1'(x) = 6y_1(x) - 3y_2(x) \\
+	y_2'(x) = 4y_1(x) - y_2(x)
+\end{array}\right. $ met als randvoorwaarden:
+$\left\{ \begin{array}{l}
+	y_1(0) = 0 \\
+	y_2(0) = 1
+\end{array}\right.$. Valt te herschrijven als:
+$ \vec{y} = \begin{vect} y_1(x) \\ y_2(x) \end{vect} \to \vec{y}\,'(x) = A \vec{y}(x), A = \begin{pmatrix*}[r] 6 & -3 \\ 4 & -1 \end{pmatrix*} $.
+
+Probeer: $y_1(x) = v_1 e^{\lambda x}$ en $y_2(x) = v_2 e^{\lambda x}$. Hierbij is het belangrijk om dezelfde $\lambda$ te gebruiken. Dit geeft ook de afgeleiden: $y_1'(x) = \lambda v_1 e^{\lambda x}, y_2'(x) = \lambda v_2 e^{\lambda x}$.
+\[ A \vec{y} = A \begin{vect} v_1 e^{\lambda x} \\ v_2 e^{\lambda x} \end{vect} = A e^{\lambda x} \begin{vect} v_1 \\ v_2 \end{vect} \]
+\[ \vec{y}\,' = \begin{vect} \lambda v_1 e^{\lambda x} \\ \lambda v_1 e^{\lambda x} \end{vect} = A e^{\lambda x} \begin{vect} v_1 \\ v_2 \end{vect} \to \begin{vect} \lambda v_1 \\ \lambda v_2 \end{vect} = A \begin{vect} v_1 \\ v_2 \end{vect} \to \lambda \begin{vect} v_1 \\ v_2 \end{vect} = A \begin{vect} v_1 \\ v_2 \end{vect} \]
+
+Je kan dus zien dat $\lambda$ de eigenwaarde is van A en dat $\begin{vect} v_1 \\ v_2 \end{vect}$ de eigenvector is.
+\[ \mbox{det} \begin{pmatrix} 6 - \lambda & -3 \\ 4 & -1- \lambda \end{pmatrix} = 0 \to \lambda^2 - 5\lambda + 6 = 0 \to \lambda_1 = 3, \lambda_2 = 2 \]
+
+\subparagraph{EV bij $\lambda=3$}
+\begin{eqnarray*}
+	\begin{pmatrix*}[r] 3 & -3 \\ 4 & -4 \end{pmatrix*} \begin{vect} x \\ y \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \\
+	\sim \begin{pmatrix*}[r] 1 & -1 \\ 0 & 0 \end{pmatrix*} \begin{vect} x \\ y \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \to x-y = 0 \to y = x
+\end{eqnarray*}
+
+Eigenvector: $\begin{vect} x \\ x \end{vect} \to \begin{vect} 1 \\ 1 \end{vect}$
+
+\subparagraph{EV bij $\lambda=2$}
+\begin{eqnarray*}
+	\begin{pmatrix*}[r] 4 & -3 \\ 4 & -3 \end{pmatrix*} \begin{vect} x \\ y \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \\
+	\sim \begin{pmatrix*}[r] 4 & -3 \\ 0 & 0 \end{pmatrix*} \begin{vect} x \\ y \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \to 4x3-y = 0 \to y = \sfrac{4}{3}x
+\end{eqnarray*}
+
+Eigenvector: $\begin{vect} x \\ \sfrac{4}{3}x \end{vect} \to \begin{vect} 3 \\ 4 \end{vect}$
+
+\subparagraph{Oplossing 1:} bij $\lambda = 3$
+\[ \to \begin{vect} y_1(x) \\ y_2(x) \end{vect} = \begin{vect} 1 \\ 1 \end{vect} e^{3x} \]
+
+\subparagraph{Oplossing 2:} bij $\lambda = 2$
+\[ \to \begin{vect} y_1(x) \\ y_2(x) \end{vect} = \begin{vect} 3 \\ 4 \end{vect} e^{2x} \]
+
+\subparagraph{Algemene oplossing:}
+\[ \begin{vect} y_1(x) \\ y_2(x) \end{vect} = c_1 \begin{vect} 1 \\ 1 \end{vect} e^{3x} + c_2 \begin{vect} 3 \\ 4 \end{vect} e^{2x} \]
+
+\subsubsection{Met randvoorwaarden}
+De randvoorwaarden $\left\{\begin{array}{l}
+	y_1(0) = 0 \\
+	y_2(0) = 1
+\end{array}\right.$ zijn gegeven:
+\[ \begin{array}{lcr}
+	y_1(0) = 0 &:& c_1 \cdot 1 \cdot 1 + c_2 \cdot 3 \cdot 1 = 0 \\
+	y_2(0) = 0 &:& c_1 \cdot 1 \cdot 1 + c_2 \cdot 4 \cdot 1 = 0
+\end{array} \to \left\{ \begin{array}{r}
+	c_1 + 3c_2 = 0 \\
+	c_1 + 4c_2 = 1
+\end{array}\right. \to \left\{ \begin{array}{l}
+	c_1 = -3 \\
+	c_2 = 0
+\end{array}\right. \]
+
+Dus de oplossing is:
+$ \begin{vect} y_1(x) \\ y_2(x) \end{vect} = -3 \begin{vect} 1 \\ 1 \end{vect} e^{3x} + \begin{vect} 3 \\ 4 \end{vect} e^{2x}$.
+
+\paragraph{Voorbeeld}
+\[ \vec{y}' = \begin{pmatrix} -1 \sfrac{1}{2} & \sfrac{1}{2} \\ 1 & -1 \end{pmatrix} \vec{y} \]
+Eigenwaarden: $\lambda_1 = - \sfrac{1}{2}, \lambda_2 = -2$. Eigenvectoren: $\vec{v}_1 = \begin{vect} 1 \\ 2 \end{vect}, \vec{v}_2 = \begin{vect} -1 \\ 1 \end{vect}$
+
+\[ \vec{y}(x) = c_1 \begin{vect} 1 \\ 2 \end{vect} e^{-\sfrac{1}{2}x} + c_2 \begin{vect} -1 \\ 1 \end{vect} e^{-2} \]
+
+Als $x \to \infty$ dan $e^{-\sfrac{1}{2}x} \to 0$ dus de oplossing $\to 0$, allo oplossingen $\to \begin{vect} 0 \\ 0 \end{vect}$. Dit punt heet een put (of \emph{attractor}). \index{attractor} Dit geldt voor negatieve $e$-machten.
+
+Bij positieve $e$-machten $\begin{vect} y_1 \\ y_2 \end{vect} \to \begin{vect} \infty \\ \infty \end{vect}$. Dit heet een bron (of \emph{repeller}). \index{repeller}
+
+\subsection{2$^e$ orde differentiaalvergelijkingen}
+\paragraph{Voorbeeld:} $y'' + y' - 2y = 0$ \\
+$\lambda^2 + \lambda -2 = 0$ \\
+$\lambda_1 = -2, \lambda_2 = 1$ \\
+$y_1(x) = e^{-2x}, y_2(x) = e^x$
+Algemene oplossing: $y(x) = c_1 e^{-2x} + c_2 e^x$. Dit is hetzelfde als:
+\[ \begin{vect} y \\ y' \end{vect}' = \begin{vect} y' \\ y'' \end{vect} = \begin{vect} y' \\ -y' + 2y \end{vect} = \begin{pmatrix*}[r] 0 & 1 \\ 2 & -1 \end{pmatrix*} \begin{vect} y \\ y' \end{vect} \quad A = \begin{pmatrix*}[r] 0 & 1 \\ 2 & -1 \end{pmatrix*} \]
+Eigenwaarden: $\lambda_1 = 1, \lambda_2 = -2$. Eigenvectoren: $\vec{v}_1 = \begin{vect} 1 \\ 1 \end{vect}, \vec{v}_2 = \begin{vect} 1 \\ -2 \end{vect}$
+\[ \begin{vect} y \\ y' \end{vect} = c_2 \begin{vect} 1 \\ 1 \end{vect} e^x + c_1 \begin{vect} 1 \\ -2 \end{vect} e^{-2x} \]
+Dit geeft dus ook:
+\begin{eqnarray*}
+	y &=& c_2 e^x + c_1 e^{-2x} \\
+	y' &=& c_2 e^x - 2 c_1 e^{-2x}
+\end{eqnarray*}
+
+\subsection{Lineairisatie}
+\[ \left\{\begin{array}{l}
+	y_1'(x) = 6y_1(x) - 3y_2(x) \\
+	y_2'(x) = 6 \sin(y_1(x)) + y_2(x)
+\end{array}\right. \]
+Dit kan je niet oplossen met behulp van lineaire algebra omdat de tweede vergelijking niet lineair is. Als je weet dat $y_1(x)$ klein is ($\ll 1$) dan kan je dit herschrijven als:
+\[ \left\{\begin{array}{l}
+	y_1'(x) = 6y_1(x) - 3y_2(x) \\
+	y_2'(x) = 6y_1(x) + y_2(x)
+\end{array}\right. \]
+Dit kan omdat $\sin 0.0001 \approx 0.0001$.
+
+\subsection{Inhomogene differentiaalvergelijkingen}
+Bij het oplossen van de inhomogene differentiaal vergelijking
+\[ \left\{\begin{array}{l}
+	y_1'(x) = 6 y_1(x) - 3y_2(x) + e^{-x} \\
+	y_2'(x) = 4 y_1(x) - y_2(x) + 4e^{-x}
+\end{array}\right. \to \vec{y}' = \begin{pmatrix*}[r] 6 & -3 \\ 4 & -1 \end{pmatrix*} \vec{y} + e^{-x} \begin{vect} 1 \\ 4 \end{vect} \]
+Loop je de volgende stappen door
+\begin{enumerate}
+	\item Homogene vergelijking:
+		\[ \vec{y}_h' = A \vec{y}_h \]
+		\[ \vec{y}_h = c_1 \begin{vect} 1 \\ 1 \end{vect} e^{3x} + c_2 \begin{vect} 3 \\ 4 \end{vect} e^{2x} \]
+	\item Particuliere oplossing:
+		\[ \vec{y}_p(x) = \begin{vect} \alpha \\ \beta \end{vect} e^{-x} \]
+		Substitueer dit in de hele vergelijking, dit geeft:
+		\[ \left\{ \begin{array}{l} \alpha = -1 \\ \beta = -2 \end{array}\right. \to \vec{y}_p(x) = \begin{vect} -1 \\ -2 \end{vect} e^{-x} \]
+	\item Totale oplossing: $\vec{y}(x) = \vec{y}_h(x) + \vec{y}_p(x)$
+\end{enumerate}
+
+\subsection{Complexe differentiaalvergelijkingen}
+\paragraph{Voorbeeld:}
+$\vec{y}' = \begin{pmatrix} -2 & -2 \frac{1}{2} \\ 10 & -2 \end{pmatrix} \vec{y}$ 
+
+Eigenwaarden: $\lambda = -2 \pm 5i$
+
+Eigenvectoren: $\vec{v}_1 = \begin{vect} i \\ 2 \end{vect}, \vec{v}_2 = \begin{vect} -i \\ 2 \end{vect}$
+
+Algemene complexe oplossing:
+\begin{eqnarray*}
+	\vec{y}(x) &=& c_1 \begin{vect} i \\ 2 \end{vect} e^{(-2 + 5i)x} + c_2 \begin{vect} -i \\ 2 \end{vect} e^{(-2-5i)x} \\
+	&=& c_1 \begin{vect} i \\ 2 \end{vect} e^{-2x}(\cos 5x + i \sin 5x ) + c_2 \begin{vect} -i \\ 2 \end{vect} e^{-2x}(\cos 5x - i \sin 5x ) \\
+	&=& \begin{vect} 0 \\ 2c_1 + 2c_2 \end{vect} e^{-2x}\cos 5x + i \begin{vect} c_1 - c_2 \\ 0 \end{vect} e^{-2x} \cos 5x \\
+	&&+ \begin{vect} -c_1 - c_2 \\ 0 \end{vect} e^{-2x}\sin 5x + i \begin{vect} 0 \\ 2c_1-2c_2 \end{vect} e^{-2x}\sin 5x
+\end{eqnarray*}
+
+De oplossing $c_1, c_2 \in \mathbb{C}$.
+
+\subparagraph{Kies} $\left\{\begin{array}{l}
+	c_1 + c_2 = 0 \\
+	i(c_1 - c_2) = 1
+\end{array}\right.$ \\
+Dit geeft de volgende oplossing: $\vec{y}(x) = \begin{vect}
+	e^{-2x} \cos 5x \\
+	2e^{-2x} \sin 5x
+\end{vect}$.
+
+\subparagraph{Kies} $\left\{\begin{array}{l}
+	c_1 - c_2 = 0 \\
+	c_1 + c_2 = 1
+\end{array}\right.$ \\
+Dit geeft de tweede oplossing: $\vec{y}(x) = \begin{vect}
+	-e^{-2x} \sin 5x \\
+	2 e^{-2x} \cos 5x
+\end{vect}$.
+
+\subparagraph{Algemene re\"ele oplossing:} $\vec{y}(x) = d_1\vec{y}(x) + d_2 \vec{y}(x)$ met $d_1, d_2 \in \mathbb{R}$. Randvoorwaarde: $\vec{y}(0) = \begin{vect} 3 \\ 3 \end{vect}$
+\[ \vec{y}(0) = d_1 \vec{y}(0) + d_2 \vec{y}(0) = d_1 \begin{vect} 1 \\ 0 \end{vect} + d_2 \begin{vect} 0 \\ 2 \end{vect} = \begin{vect} 3 \\ 3 \end{vect} \]
+\[ d_1 = 3, d_2 = 1 \sfrac{1}{2} \]
+
+\subsubsection{Formule voor complexe differentiaalvergelijkingen}
+
+Bij de complexe eigenwaarde $\lambda = a + bi$ (met $a$ en $b$ re\"eel) met bijbehorende complexe eigenvector $\vec{v}$ van de differentiaalvergelijking $\vec{y}' = A\vec{x}$ kan je de re\"ele oplossingen van een $(2 \times 2)$ matrix ook oplossen met de onderstaande formule. \textbf{Let op:} veel mensen maken hier fouten in tijdens het examen!
+\[ y_1(t) = \mbox{Re}\,\vec{x}_1(t) = [ (\mbox{Re}\, \vec{v}) \cos bt - (\mbox{Im}\, \vec{v}) \sin bt] e^{at} \]
+\[ y_2(t) = \mbox{Im}\, \vec{x_1}(t) = [ (\mbox{Re}\, \vec{v} \sin bt + (\mbox{Im}\, \vec{v}) \cos bt] a^{at} \]

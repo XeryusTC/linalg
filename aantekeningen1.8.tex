@@ -1,0 +1,193 @@
+\section{Lineaire transformaties (\S 1.8, \S 1.9)}
+De matrix vergelijking $A \vec{x} = \vec{b}$ is equivalent aan de vector vergelijking $x_1 \vec{a}_1 + \cdots + x_n \vec{a}_n = \vec{b}$. Matrix $A$ werkt/acts op een vector $\vec{x}$ en maakt/produces vector $\vec{b} \to A$ transformeert $\vec{x}$ in $\vec{b} \leftrightarrow A$  beeldt $\vec{x}$ af op $\vec{b}$.
+
+\paragraph{Voorbeeld}
+\[ \begin{pmatrix*}[r]
+	4 & -3 & 1 & 3 \\
+	2 & 0 & 5 & 1
+\end{pmatrix*} \begin{vect} 1 \\ 1 \\ 1 \\ 1 \end{vect} = \begin{vect} 5 \\ 8 \end{vect} \]
+\[ \begin{pmatrix*}[r]
+	4 & -3 & 1 & 3 \\
+	2 & 0 & 5 & 1
+\end{pmatrix*} \begin{vect} 1 \\ 4 \\ -1 \\ 3 \end{vect} = \begin{vect} 0 \\ 0 \end{vect} = \vec{0} \]
+
+$A \vec{x} = \vec{b} \to$ zoek alle vectoren $\vec{x} \in \mathbb{R}^4$ die transformeren in $\vec{b} \in \mathbb{R}^2$ onder 'werking' van matrix $A$.
+
+\subsection{Definitie transformatie}
+Transformatie T \index{transformatie}: $\mathbb{R}^n \to \mathbb{R}^m$ kent aan iedere vector $\vec{x} \in \mathbb{R}^n$ een vector $T(\vec{x})$ in $\mathbb{R}^m$ toe volgens een $m \times n$ matrix $A$ ($m$ rijen, $n$ kolommen)
+
+\paragraph{Voorbeeld} $T: \mathbb{R}^2 \to \mathbb{R}^3, A = \begin{pmatrix*}[r]
+	1 & -3 \\
+	3 & 5 \\
+	-1 & 7
+\end{pmatrix*}$
+\begin{enumerate}
+	\item Bereken $T(\vec{u})$ met $\vec{u} = \begin{vect} 2 \\ -1 \end{vect}$
+	\[ T(\vec{u}) = A \vec{u} = \begin{pmatrix*}[r]
+	1 & -3 \\
+	3 & 5 \\
+	-1 & 7
+\end{pmatrix*} \begin{vect} 2 \\ -1 \end{vect} = \begin{vect} 5 \\ 1 \\ -9 \end{vect} \]
+	\item Zoek vector $\vec{x} \in \mathbb{R}^2$ die onder $A$ transformeert naar $\vec{b} = \begin{vect} 3 \\ 2 \\ -5 \end{vect}$. $T(\vec{x}) = \vec{b}$ ofwel $A \vec{x} = \vec{b}$
+	\[ \begin{pmatrix*}[r]
+	1 & -3 \\
+	3 & 5 \\
+	-1 & 7
+\end{pmatrix*} \begin{vect} x_1 \\ x_2 \end{vect} = \begin{vect} 3 \\ 2 \\ -5 \end{vect} \to \left(\!\begin{array}{rr|r}
+	1 & -3 & 3 \\
+	3 & 5 & 2 \\
+	-1 & 7 & -5
+\end{array}\!\right) \sim \left(\!\begin{array}{rr|r}
+	1 & 0 & 1\sfrac{1}{2} \\
+	0 & 1 & -\sfrac{1}{2} \\
+	0 & 0 & 0
+\end{array}\!\right) \to x_1 = 1\sfrac{1}{2}, x_2 = -\sfrac{1}{2} \]
+\[ \vec{x} \in \mathbb{R}^2 \to x_3 \mbox{''vervalt''}) \to \vec{x} = \begin{vect} 1 \sfrac{1}{2} \\ - \sfrac{1}{2} \end{vect} \]
+\end{enumerate}
+
+\subsection{Meer definitie}
+\[T: A \subset \mathbb{R}^n \to B \subset \mathbb{R}^m \]
+Hierbij is $A$ het bereik en $B$ het bereik van de transformatie. $T$ is lineair als:
+\begin{enumerate}
+	\item $T(\vec{u} + \vec{v}) = T(\vec{u}) + T(\vec{v})$
+	\item $T(c \cdot \vec{u}) = c \cdot T(\vec{u})$
+\end{enumerate}
+
+\paragraph{Voorbeeld} \emph{Afschuiving} (\emph{shear}) \index{afschuiving} \index{shear} van het vierkant gedefinieerd door de punten $(0,0) (2,0) (0,2) (2,2)$.
+\[ T(\vec{x}) = A \vec{x}, \mathbb{R}^2 \to \mathbb{R}^2, A = \left(\!\begin{array}{rr}
+	1 & 3 \\
+	0 & 1
+\end{array}\!\right) \]
+\[ A\begin{vect} 2 \\ 0 \end{vect} = \begin{pmatrix*}[r]
+	1 & 3 \\
+	0 & 1
+\end{pmatrix*} \begin{vect} 2 \\ 0 \end{vect} = \begin{vect} 2 \\ 0 \end{vect} \]
+\[ A\begin{vect} 0 \\ 2 \end{vect} = \begin{pmatrix*}[r]
+	1 & 3 \\
+	0 & 1
+\end{pmatrix*} \begin{vect} 0 \\ 2 \end{vect} = \begin{vect} 6 \\ 2 \end{vect} \]
+\[ A\begin{vect} 2 \\ 2 \end{vect} = \begin{pmatrix*}[r]
+	1 & 3 \\
+	0 & 1
+\end{pmatrix*} \begin{vect} 2 \\ 2 \end{vect} = \begin{vect} 8 \\ 2 \end{vect} \]
+
+Deze transformaties zijn te zien in \autoref{fig:shear}. Hierbij zijn de blauwe vectoren en het blauwe vierkant het orgineel en de rode vectoren en het rode parallellogram zijn het beeld na de transformatie.
+
+\input{graphs/shear}
+
+\paragraph{Voorbeeld} Wat is de afbeelding als je transformeert met $A = \begin{pmatrix*}[r]
+	0 & -1 \\
+	1 & 0
+\end{pmatrix*}$?
+\[ A \begin{vect} 4 \\ 1 \end{vect} = \begin{pmatrix*}[r]
+	0 & -1 \\
+	1 & 0
+\end{pmatrix*} \begin{vect} 4 \\ 1 \end{vect} = \begin{vect} -1 \\ 4 \end{vect} \]
+\[ A \begin{vect} 2 \\ 3 \end{vect} = \begin{pmatrix*}[r]
+	0 & -1 \\
+	1 & 0
+\end{pmatrix*} \begin{vect} 2 \\ 3 \end{vect} = \begin{vect} -3 \\ 2 \end{vect} \]
+
+Deze transformaties zijn afgebeeld in \autoref{fig:rotatie}. Hier valt te zien dat de vectoren $\sfrac{1}{2}\pi$ gedraaid zijn.
+
+\input{graphs/rotatie}
+
+\subsection{Transformatie eenheidsvectoren}
+Als het bereik gegeven is maar de matrix $A$ niet dan moet je gebruik maken van de eenheidsvectoren $(\vec{e}_1, \ldots, \vec{e}_n)$ om de matrix $A$ te bepalen.
+
+\paragraph{Voorbeeld} $T\left(\!\begin{vect} 1 \\ 0 \end{vect}\!\right) = \begin{vect} 5 \\ -7 \\ 2 \end{vect}, T\left(\!\begin{vect} 0 \\ 1 \end{vect}\!\right) = \begin{vect} -3 \\ 8 \\ 0 \end{vect}$ Vraag: waarheen leidt $\begin{vect} 2 \\ 1 \end{vect}$?
+
+\[ T \begin{vect} x \\ y \end{vect} = T \left(\!x \begin{vect} 1 \\ 0 \end{vect} + y \begin{vect} 0 \\ 1 \end{vect} \!\right) = T \left(\! x \begin{vect} 1 \\ 0 \end{vect} \!\right) + T \left(\! y \begin{vect} 0 \\ 1 \end{vect} \!\right) = x T \begin{vect} 1 \\ 0 \end{vect} + y T \begin{vect} 0 \\ 1 \end{vect} \]
+\[ = x \begin{vect} 5 \\ -7 \\ 2 \end{vect} + y \begin{vect} -3 \\ 8 \\ 0 \end{vect} = \begin{pmatrix*}[r]
+	5 & -3 \\
+	-7 & 8 \\
+	2 & 0
+\end{pmatrix*} \begin{vect} x \\ y \end{vect} \to A = \begin{pmatrix*}[r]
+	5 & -3 \\
+	-7 & 8 \\
+	2 & 0
+\end{pmatrix*} \]
+\[T \begin{vect} 2 \\ 1 \end{vect} = A \begin{vect} 2 \\ 1 \end{vect} = \begin{pmatrix*}[r]
+	5 & -3 \\
+	-7 & 8 \\
+	2 & 0
+\end{pmatrix*} \begin{vect} 2 \\ 1 \end{vect} = \begin{vect} 7 \\ -6 \\ 4 \end{vect} \]
+
+\paragraph{Voorbeeld} Wat is de matrix die hoort bij rotatie over de hoek $\phi$?
+\[ \vec{e}_1 = \begin{vect} 1 \\ 0 \end{vect} \to \vec{p} = \begin{vect} \cos \varphi \\ \sin \varphi \end{vect}, \vec{e}_2 = \begin{vect} 0 \\ 1 \end{vect} \to \vec{q} = \begin{vect} - \sin \varphi \\ \cos \varphi \end{vect} \Rightarrow A = \begin{pmatrix*}[r]
+	\cos \varphi & - \sin \varphi \\
+	\sin \varphi & \cos \varphi
+\end{pmatrix*} \]
+Als $\varphi = \sfrac{1}{2} \pi \to A = \begin{pmatrix*}[r]
+	0 & -1 \\
+	1 & 0
+\end{pmatrix*}$
+
+\subsection{Eigenschappen van afbeeldingen}
+\subsubsection{Definitie: injectie}
+$T$ is injectief (''one-to-one'') als $T(\vec{x}) = T(\vec{y}) \to \vec{x} = \vec{y}$ ofwel als $\vec{x} \neq \vec{y} \to T(\vec{x}) \neq T(\vec{y})$. Verschillende originelen hebben verschillende afbeeldingen.
+
+\paragraph{Voorbeeld} Is $T$ injectief? Altijd bij $T(\vec{0}) = \vec{0}$\[ T \begin{vect} 1 \\ 3 \\ -5 \end{vect} = \begin{pmatrix*}[r]
+	2 & 1 & 1 \\
+	3 & -1 & 0 \\
+	5 & 0 & 1
+\end{pmatrix*} \begin{vect} 1 \\ 3 \\ -5 \end{vect} = \begin{vect} 0 \\ 0 \\ 0 \end{vect} = \vec{0} \]
+$\vec{0}$ heeft minstens 2 originelen dus $T$ is geen injectie.
+
+\subsubsection{Definitie: surjectie}
+$T$ is surjectief (''onto'') als $\forall b \in B \exists a \in A$ zodat $T(a) = b$. Ofwel: elk beeld heeft minstens \'e\'en origineel.
+
+\paragraph{Voorbeeld} Is $T$ Surjectief?
+\[ \left(\!\begin{array}{rrr|r}
+	2 & 1& 1 & 1 \\
+	3 & -1 & 0 & 1 \\
+	5 & 0 & 1 & 1
+\end{array}\!\right) \sim \left(\!\begin{array}{rrr|r}
+	2 & 1 & 1 & 1 \\
+	3 & -1 & 0 & 1 \\
+	0 & 0 & 0 & -1
+\end{array} \!\right) \]
+Geen oplossingen dus er is geen orgineel. $T$ is geen surjectie.
+
+\subsubsection{Definitie: bi-jectie}
+$T$ is bi-jectief als $T$ zowel injectief als surjectief is.
+\begin{eqnarray*}
+T: A \to B &\mbox{ bi-jectief }& \forall b \in B \exists ! a \in A: T(a) = b \\
+&& \forall a \in A \exists ! b \in B: T(a) = b
+\end{eqnarray*}
+
+\subsubsection{Bepalen injectie/surjectie/bi-jectie}
+Om te bepalen of de transformatie $T$ een injectie, surjectie of bi-jectie is gebruik je de volgende twee stellingen:
+
+\paragraph{Stelling 11:} \index{Stellingen!Hoofdstuk 1!Stelling 11} Stel $T: \mathbb{R}^n \to \mathbb{R}^m$. Dan is $T$ een injectie dan en slechts dan als de vergelijking $T(\vec{x}) = \vec{0}$ alleen de nulvector als oplossing heeft.
+
+\paragraph{Stelling 12:} \index{Stellingen!Hoofdstuk 1!Stelling 12} Stel $T: \mathbb{R}^n \to \mathbb{R}^m$ en $A$ is de bijbehorende matrix, dan:
+\begin{enumerate}
+	\item $T$ is een surjectie dan en slechts dan als alle vectoren is $\mathbb{R}^m$ een lineaire combinatie zijn van de kolommen van $A$.
+	\item $T$ is een injectie dan en slechts dan als de kolommen van $A$ lineair onafhankelijk zijn.
+\end{enumerate}
+
+Het is ook zo dat als de transformatie matrix $A$ inverteerbaar is dan is de transformatie $T$ een bi-jectie.
+
+
+\subsection{Handige standaard transformaties}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c}
+		\textbf{Transformatie} & \textbf{Standaard matrix} \\ \hline
+		Spiegelen door de $x_1$-as & $\begin{pmatrix*}[r] 1 & 0 \\ 0 & -1 \end{pmatrix*}$ \\ \hline
+		Spiegelen door de $x_2$-as & $\begin{pmatrix*}[r] -1 & 0 \\ 0 & 1 \end{pmatrix*}$ \\ \hline
+		Spiegelen door de lijn $x_2 = x_1$ & $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ \\ \hline
+		Spiegelen door de lijn $x_2 = -x_1$ & $\begin{pmatrix*}[r] 0 & -1 \\ -1 & 0 \end{pmatrix*}$ \\ \hline
+		Spiegelen door de oorsprong & $\begin{pmatrix*}[r] -1 & 0 \\ 0 & -1 \end{pmatrix*}$ \\ \hline
+		Horizontaal rekken/krimpen met factor $k$ & $\begin{pmatrix} k & 0 \\ 0 & 1 \end{pmatrix}$ \\ \hline
+		Verticaal rekken/krimpen met factor $k$ & $\begin{pmatrix} 1 & 0 \\ 0 & k \end{pmatrix}$ \\ \hline
+		Horizontale verschuiving met factor $k$ & $\begin{pmatrix} 1 & k \\ 0 & 1 \end{pmatrix}$ \\ \hline
+		Verticaal verschuiven met factor $k$ & $\begin{pmatrix} 1 & 0 \\ k & 1 \end{pmatrix}$ \\ \hline
+		Projectie op de $x_1$-as & $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ \\ \hline
+		Projectie op de $x_2$-as & $\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$ \\  \hline
+		Rotatie om de oorsprong (tegen de klok in) & $\begin{pmatrix*}[r] \cos \varphi & - \sin \varphi \\	\sin \varphi & \cos \varphi \end{pmatrix*}$
+	\end{tabular}
+	\caption{Overzicht van standaard transformaties}
+	\label{tbl:standtrans}
+\end{table}

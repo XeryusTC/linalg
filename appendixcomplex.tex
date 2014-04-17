@@ -1,0 +1,34 @@
+\section{Complexe getallen}
+
+\begin{itemize}
+	\item De imaginaire eenheid is een getal $i$ waarvoor $i^2=-1$. De vergelijking $x^2 = -1$ heeft als oplossingen $i$ en $-i$.
+	\item Als $z = x + yi$, x en y re\"eel, dan is $\overline{z} = x -yi$ de complex toegevoegde van $z$.
+	\item Binnen de complexe getallen kunnen we optellen, aftrekken, vermenigvuldigen en delen met behoud van de normale rekenregels.
+	\item Voor $z = x+yi$, x en y re\"eel geldt $e^z = e^{x+yi} = e^x (\cos y + i \sin y)$.
+	\item Voor re\"ele $x$ geldt: $\displaystyle \cos x = \frac{e^{xi} + e^{-xi}}{2}, \sin x = \frac{e^{xi} - e^{-xi}}{2i}$.
+\end{itemize}
+
+\subsection{Rekenregels complexe getallen}
+$z=x+yi, w=u+vi$
+\begin{description}
+	\item[Gelijkheid] $z=w$ als $x=u$ en $y=v$.
+	\item[Som] $z+w = x+yi + u+vi = (x+u) + (y+v)i$.
+	\item[Verschil] $z-w = (x+yi) - (u+vi) = (x-u) + (y-v)i$.
+	\item[Product] $zw = (x+yi)(u+vi) = xu + xvi + yiu + yvi^2 = (xu-yv)+(xv+yu)i$.
+	\item[Quoti\"ent] $ \displaystyle \frac{z}{w} = \frac{x+yi}{u+vi} = \frac{(x+yi)(u-vi)}{(u+vi)(u-vi)} = \frac{xu-xvi+yiu-yvi^2}{u^2-uvi+viu-v^2i^2} = \frac{(xu+yv)+(uy-xv)i}{u^2+v^2}$.
+
+	\item[Complexe exponenti\"ele functie]
+	$\displaystyle e^{x + yi} = e^x(\cos y + i \sin y), \cos x = \frac{e^{xi} + e^{-xi}}{2}, \sin x = \frac{e^{xi} - e^{-xi}}{2i}$.
+	\item[Modulus] $|z| = \sqrt{x^2 + y^2}$.
+\end{description}
+
+\subsection{Rekenregels complex toegevoegde}
+Als $z = x +yi$ en $w = u + vi$ met $x, y, u, v$ re\"eel, dan geldt:
+\begin{itemize}
+	\item $z + \overline{z} = 2 \mbox{ Re}(z)$ is re\"eel: $z+\overline{z} = (x + yi) + (x-yi) = 2x = 2 \mbox{ Re}(z)$.
+	\item $z - \overline{z} = 2i \mbox{ Im}(z)$ is imaginair: $z-\overline{z} = (x+yi) - (x-yi) = 2yi = 2i \mbox{ Im}(z)$.
+	\item $z \overline{z}$ is re\"eel: $z\overline{z} = (x+yi)(x-yi) = x^2 + y^2$.
+	\item $\overline{z+w} = \overline{z} + \overline{w}$: $\overline{z+w} = \overline{(x+u) + (y+v)i} = (x+u)-(y+v)i = \overline{z} + \overline{w}$.
+	\item $\overline{zw} = \overline{z} \cdot \overline{w}$: $\overline{zw} = \overline{(xu-yv)+xv+yu)i} = (xu -yv) - (xv+yu)i = (x-yi)(u-vi) = \overline{z} \cdot \overline{w}$.
+	\item $\overline{\overline{z}} = z$: $\overline{\overline{z}} = \overline{(\overline{x+yi})} = \overline{(x-yi)} = x+yi = z$.
+\end{itemize}

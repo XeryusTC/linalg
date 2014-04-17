@@ -1,0 +1,165 @@
+\section{Eigenvectoren \& Eigenwaarden (\S5.1, \S5.2)} \label{sec:eigen}
+\subsection{Definitie}
+$A \vec{x} = \lambda \vec{x}$ Waarbij $A$ een $(n \times n)$ matrix is. Als $\vec{x} \neq \vec{0}$ dan $\vec{x}$ = de eigenvector (ev) en $\lambda$ is de bijbehorende eigenwaarde (ew).
+
+\paragraph{Voorbeeld}
+\[ A = \begin{pmatrix*}[r] 3 & -2 \\ 1 & 0 \end{pmatrix*}, \vec{x} = \begin{vect} 2 \\ 1 \end{vect} \]
+\[ A \vec{x} = \begin{pmatrix*}[r] 3 & -2 \\ 1 & 0 \end{pmatrix*} \begin{vect} 2 \\ 1 \end{vect} = \begin{vect} 4 \\ 2 \end{vect} = 2 \vec{x} \]
+$\to$ ev $\vec{x} = \begin{vect} 4 \\ 2 \end{vect}$, ew $\lambda = 2$.
+
+\[ \begin{pmatrix*}[r] 3 & -2 \\ 1 & 0 \end{pmatrix*} \begin{vect} 2 \\ 3 \end{vect} = \begin{vect} 0 \\ 2 \end{vect} \neq \lambda \begin{vect} 2 \\ 3 \end{vect} \]
+
+\paragraph{Voorbeeld} $A = \begin{pmatrix*}[r] 3 & -2 \\ 1 & 0 \end{pmatrix*}$. Toon aan dat $\lambda = 1$ een eigenwaarde is van A. Wat is de bijbehorende eigenvector?
+\begin{eqnarray*}
+	\begin{pmatrix*}[r] 3 & -2 \\ 1 & 0 \end{pmatrix*} \begin{vect} x \\ y \end{vect} = 1 \begin{vect} x \\ y \end{vect}
+	\to \begin{pmatrix*}[r] 3 & -2 \\ 1 & 0 \end{pmatrix*} \begin{vect} x \\ y \end{vect} &=& \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \begin{vect} x \\ y \end{vect} \\
+	A \vec{x} &=& I \vec{x}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+	\left\{ \begin{pmatrix*}[r] 3 & -2 \\ 1 & 0 \end{pmatrix*} - \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \right\} \begin{vect} x \\ y \end{vect} &=& \begin{vect}  0 \\ 0 \end{vect} \\
+	\begin{pmatrix*}[r] 2 & -2 \\ 1 & -1 \end{pmatrix*} \begin{vect} x \\ y \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \\
+	\begin{pmatrix*}[r] 0 & 0 \\ 1 & -1 \end{pmatrix*} \begin{vect} x \\ y \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \to \begin{array}{rcl} x - y & = & 0 \\ x & = & y \end{array}
+\end{eqnarray*}
+Kies $\begin{vect} 1 \\ 1 \end{vect}$ als eigenvector bij $\lambda = 1$ als eigenwaarde. Ook $\begin{vect} 2 \\ 2 \end{vect}$ is een eigenvector voor $\lambda = 1$ als eigenwaarde.
+
+\paragraph{Opmerking} meetkunde
+$T: \vec{x} \to  A \vec{x}, \vec{x}$ is eigenvector. $T: \vec{x} \to \lambda \vec{x}$. De eigenvector behoudt zijn richting. Zie \autoref{fig:ev}.
+\input{graphs/ev}
+
+\subsection{Hoe bereken je eigenwaarde en eigenvector?}
+$A \vec{x} = \lambda \vec{x} \to (A - \lambda I) \vec{x} = \vec{0} \quad (\vec{x} = 0$ is altijd een oplossing$)$. Dit is een homogene vergelijking. Er zijn meerdere oplossingen als det$(A - \lambda I) = 0$. Als je dit oplost dan heb je $\lambda$.
+
+\paragraph{Voorbeeld}
+\[A = \begin{pmatrix*}[r] -5 & 2 \\ 2 & -2 \end{pmatrix*} \]
+\begin{eqnarray*}
+	\mbox{det} \begin{pmatrix}
+		-5 - \lambda & 2 \\
+		2 & -2 - \lambda
+	\end{pmatrix} &=& 0 \\
+	(-5-\lambda)(-2 - \lambda) - 2 \cdot 2 &=& 0 \\
+	\lambda^2 + 7 \lambda + 6 &=& 0
+\end{eqnarray*}
+\[ \lambda_1 = -1, \lambda_2 = -6 \]
+Nu kun je eigenvectoren berekenen, ev bij $\lambda = -1$:
+\[ \begin{pmatrix*}[r] -4 & 2 \\ 2 & -1 \end{pmatrix*} \begin{vect} x \\ y \end{vect} = \begin{vect} 0 \\ 0 \end{vect} \]
+\[ \begin{pmatrix*}[r] 0 & 0 \\ 2 & -1 \end{pmatrix*} \begin{vect} x \\ y \end{vect} = \begin{vect} 0 \\ 0 \end{vect} \to \begin{array}{rcl}
+	2x - y &=& 0 \\
+	y &=& 2x
+\end{array} \]
+Eigenvector is $\begin{vect} x \\ 2x \end{vect} \to$ kies $\begin{vect} 1 \\ 2 \end{vect}$.
+Ev bij $\lambda = -6$:
+\[ \begin{pmatrix*}[r] 1 & 2 \\ 2 & 4 \end{pmatrix*} \begin{vect} x \\ y \end{vect} = \begin{vect} 0 \\ 0 \end{vect} \]
+\[ \begin{pmatrix*}[r] 1 & 2 \\ 0 & 0 \end{pmatrix*} \begin{vect} x \\ y \end{vect} = \begin{vect} 0 \\ 0 \end{vect} \to \begin{array}{rcl}
+	x + 2y &=& 0 \\
+	x &=& -2y
+\end{array} \]
+Eigenvector is $\begin{vect} y \\ -2y \end{vect} \to$ kies $\begin{vect} -2 \\ 1 \end{vect}$.
+
+\paragraph{Opmerkingen}
+\begin{enumerate}
+	\item Er is altijd minstens een $\lambda$.
+	\item $\lambda$ kan complex zijn. De eigenvector kan dus ook complex zijn.
+	\item $A$ is $(n \times n)$, soms heb je minder dan $n$ eigenwaarden, maar toch $n$ verschillende eigenvectoren.
+\end{enumerate}
+
+\paragraph{Voorbeeld} Eigenwaarde van $A = \begin{pmatrix*}[r]
+	4 & -1 & 6 \\
+	2 & 1 & 6 \\
+	2 & -1 & 8
+\end{pmatrix*}$
+\[ \mbox{det}(A - \lambda I) = \mbox{det}\begin{pmatrix*}[r]
+	4 & -1 & 6 \\
+	2 & 1 & 6 \\
+	2 & -1 & 8
+\end{pmatrix*} = 0 \]
+\[ (4 - \lambda) \cdot \mbox{det} \begin{pmatrix}
+	1 - \lambda & 6 \\
+	-1 & 8 - \lambda
+\end{pmatrix} - 2 \cdot \mbox{det} \begin{pmatrix}
+	-1 & 5 \\
+	-1 & 8 - \lambda
+\end{pmatrix} + 2 \cdot \mbox{det} \begin{pmatrix}
+	-1 & 6 \\
+	1 - \lambda & 6
+\end{pmatrix} = \lambda^3 - 13 \lambda^2 + 40 \lambda - 36 = 0 \]
+\[ = (\lambda -2) (\lambda-2) (\lambda-9) = 0 \]
+$\lambda_1 = 2, \lambda_2 = 2, \lambda_3 = 9 \to$ slechts 2 eigenwaardes.
+
+\subparagraph{$\lambda = 9$:}
+\begin{eqnarray*}
+	\begin{pmatrix}
+		4-9 & -1 & 6 \\
+		2 & 1-9 & 6 \\
+		2 & -1 & 8-9
+	\end{pmatrix} \begin{vect} x \\ y \\ z \end{vect} &=& \begin{vect} 0 \\ 0 \\ 0 \end{vect} \\
+	\begin{pmatrix}
+		-5 & -1 & 6 \\
+		2 & -8 & 6 \\
+		2 & -1 & -1
+	\end{pmatrix} \begin{vect} x \\ y \\ z \end{vect} &=& \begin{vect} 0 \\ 0 \\ 0 \end{vect} \\
+	\left(\!\begin{array}{rrr|r}
+		0 & 0 & 0 & 0 \\
+		1 & -1 & 0 & 0 \\
+		1 & 0 & -1 & 0
+	\end{array}\!\right) &\to& \left.\begin{array}{rcc}
+		x-y = 0 &\to& y=x \\
+		x-z = 0 &\to& z=x
+	\end{array}\right\} \mbox{ ev } = \begin{vect} x \\ x \\ x \end{vect} \to \mbox{kies} \begin{vect} 1 \\ 1 \\ 1 \end{vect}
+\end{eqnarray*}
+
+\subparagraph{$\lambda = 2$:}
+\begin{eqnarray*}
+	\begin{pmatrix}
+		2 & -1 & 6 \\
+		2 & -1 & 6 \\
+		2 & -1 & 6
+	\end{pmatrix} \begin{vect} x \\ y \\ z \end{vect} &=& \begin{vect}0 \\ 0 \\ 0 \end{vect} \\
+	\begin{pmatrix*}[r]
+		2 & -1 & 6 \\
+		0 & 0 & 0 \\
+		0 & 0 & 0
+	\end{pmatrix*} \begin{vect} x \\ y \\ z \end{vect} &=& \begin{vect}0 \\ 0 \\ 0 \end{vect} \to 2x - y + 6z = 0 \to y = 2x + 7z
+\end{eqnarray*}
+\[ \mbox{ev: } \begin{vect} x \\ 2x+6z \\ z \end{vect} = \begin{vect} x \\ 2x \\ 0 \end{vect} + \begin{vect} 0 \\ 6z \\ z \end{vect} = x \begin{vect} 1 \\ 2 \\ 0 \end{vect} + z \begin{vect} 0 \\ 6 \\ 1 \end{vect} \]
+
+Kies $x=1, z=0 \to \begin{vect} 1 \\ 2 \\ 0 \end{vect}$. Kies $x=0, z=1 \to \begin{vect} 0 \\ 6 \\ 1 \end{vect}$. Dit resultaat spant een dus een vlak op. Zo krijg je met twee eigenwaarden toch nog 3 eigenvectoren.
+
+\paragraph{Stelling 1} \index{Stellingen!Hoofdstuk 5!Stelling 1} Bij een driehoeksmatrix zijn de waarden op de hoofddiagonaal de eigenwaarden.
+
+\paragraph{Voorbeeld}
+\[ A = \begin{pmatrix*}[r]
+	3 & 6 & -8 \\
+	0 & 1 & 6 \\
+	0 & 0 & 2
+\end{pmatrix*} \]
+\[ \mbox{det}(A - \lambda I) = (3 - \lambda) (1 - \lambda) (2 - \lambda) = 0 \]
+
+\paragraph{Stelling 2} \index{Stellingen!Hoofdstuk 5!Stelling 2} $A$ is $(n \times n)$ waarbij $\lambda_1, \ldots, \lambda_r$ verschillende eigenwaarden $(r \leq n) \to \vec{v}_1, \ldots, \vec{v}_r$ zijn dan lineair onafhankelijke eigenvectoren.
+
+\paragraph{Voorbeeld} $\vec{x}_0 = \begin{vect} 0,6 \\ 0,4 \end{vect}, A = \begin{pmatrix*}[r] 0,95 & 0,03 \\ 0,05 & 0,97 \end{pmatrix*}$
+
+$ \vec{x}_1 = A \vec{x}_0 $
+
+$ \vec{x}_n = A \vec{x}_{n-1} $
+
+Wat is de toestand na 100 stappen? Stel $\lambda_1, \lambda_2$ zijn de eigenwaarden en $\vec{v}_1, \vec{v}_2$ de eigenvectoren.
+\begin{eqnarray*}
+	\to \vec{x}_0 &=& c_1 \vec{v}_1 + c_2 \vec{v}_2 \\
+	\vec{x}_1 &= A \vec{x}_0 =& A(c_1 \vec{v}_1 + c_2 \vec{v}_2) = c_1 A \vec{v}_1 + c_2 A \vec{v}_2 = c_1 \lambda_1 \vec{v}_1 + c_2 \lambda_2 \vec{v}_2 \\
+	\vec{x}_2 & = A \vec{x}_1 =& A(c_1 \lambda_1 \vec{v}_1 + c_2 \lambda_2 \vec{v}_2) = c_1 \lambda_1 A \vec{v}_1 + c_2 \lambda_2 A \vec{v}_2 = c_1 \lambda_1^2 \vec{v}_1 + c_2 \lambda_2^2 \vec{v}_2 \\
+	\vec{x}_n &=& c_1 \lambda_1^n \vec{v}_1 + c_2 \lambda_2^n \vec{v}_2
+\end{eqnarray*}
+
+\[ A = \begin{pmatrix*}[r] 0,95 & 0,03 \\ 0,05 & 0,97 \end{pmatrix*} \mbox{ geeft } \lambda_1 = 1, \lambda_2 = 0.92, \vec{v}_1 = \begin{vect} 3 \\ 5 \end{vect}, \vec{v}_2 = \begin{vect} 1 \\ -1 \end{vect} \]
+
+$\vec{x}_0$ ontbinden in eigenvectoren: $\vec{x}_0 = c_1 \begin{vect} 3 \\ 5 \end{vect} + c_2 \begin{vect} 1 \\ -1 \end{vect} \to \left\{\begin{array}{c}
+	c_1 = 0.125 \\
+	c_2 = 0.225
+\end{array}\right.$
+
+$\vec{x}_n = 0.125 \cdot 1^n \cdot \begin{vect} 3 \\ 5 \end{vect} + 0.225 \cdot 0.92^n \cdot \begin{vect} 1 \\ -1 \end{vect}$
+
+\[ n \to \infty: \vec{x}_\infty = 0.125 \cdot \begin{vect} 3 \\ 5 \end{vect} = \begin{vect} \sfrac{3}{8} \\ \sfrac{5}{8} \end{vect} \]
+
+In het algemeen is het zo dat als $| \lambda_1, \ldots, \lambda_r| \leq 1$ dan bestaat er een \emph{eindtoestand}. \index{eindtoestand}

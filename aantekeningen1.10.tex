@@ -1,0 +1,24 @@
+\section{Overgangs-matrices (\S 1.10)}
+\[ \begin{array}{ll}
+	\vec{x}_0 & \mbox{begintoestand} \index{begintoestand} \\
+	\vec{x}_1 = A \vec{x}_0 & \mbox{Toestand na een periode} \\
+	\vec{x}_2 = A \vec{x}_1 = A(A \vec{x}_0) = A^2 \vec{x}_0 & \mbox{Toestand na twee periodes}
+\end{array} \]
+Algemene vorm:
+$ \left\{ \begin{array}{l}
+	\vec{x}_{n+1} = A \vec{x}_n \\
+	\vec{x}_0
+\end{array} \right. $
+
+\paragraph{voorbeeld} twee steden met twee bevolkingsgroepen. In stad R: $r_0 = 600.000$ inwoners. In Stad S: $s_0 = 400.000$ inwoners. Elk jaar verhuist 5\% van R naar S en 3\% van S naar R. \\
+Toestand na jaar 1:
+\[ \begin{vect} r_0 \\ s_0 \end{vect} \to \begin{pmatrix}
+	0.95 & 0.03 \\
+	0.05 & 0.97
+\end{pmatrix} \begin{vect} r_0 \\ s_0 \end{vect} = \begin{vect} r_1 \\ s_1 \end{vect} = \begin{vect} 582.000 \\ 418.000 \end{vect} \]
+Toestand na jaar 2:
+\[ \begin{vect} r_2 \\ s_2 \end{vect} = \begin{pmatrix}
+	0.95 & 0.03 \\
+	0.05 & 0.97
+\end{pmatrix} \begin{vect} 582.000 \\ 418.000 \end{vect} = \begin{vect} 565.440 \\ 434.560 \end{vect} \]
+Na $\infty$ stappen stabiliseert de situatie. $r_\infty = 375.000, s_\infty = 625.000$. Om dit te kunnen uitrekenen heb je eigenvectoren en eigenwaarden nodig (eigen komt uit het Duits). Zie ook \autoref{sec:eigen}.

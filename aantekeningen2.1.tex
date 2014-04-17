@@ -1,0 +1,180 @@
+\section{Matrix operaties (\S2.1)}
+In een matrix $A$ staat $a_{ij}$ voor het getal in de $i^e$ rij en de $j^e$ kolom. Dus $a_{32}$ staat voor het getal in de $3^e$ rij en de $2^e$ kolom.
+\subsection{Optellen}
+Optellen gaat componentsgewijs.
+\[ A = \begin{pmatrix*}[r] 1 & 2 \\ 3 & 4 \end{pmatrix*}, B = \begin{pmatrix*}[r]0 & -1 \\ 2 & 7 \end{pmatrix*}, C = \begin{pmatrix*}[r] 4 & 3 & 1 \\ -1 & 2 & 3 \end{pmatrix*} \]
+\[ A+B = \begin{pmatrix*}[c] 1+0 & 2+ -1 \\
+3+2 & 4+7 \end{pmatrix*} = \begin{pmatrix*}[r] 1 & 1 \\ 5 & 11 \end{pmatrix*} \]
+$A+C$ kan niet omdat ze niet even groot zijn.
+
+\paragraph{Bewijs}
+\begin{eqnarray*}
+	A \vec{x} = \begin{pmatrix*}[r] 1 & 2 \\ 3 & 4 \end{pmatrix*} \begin{vect} x \\ y \end{vect} &=& \begin{vect} x + 2y \\ 3x+4y \end{vect} \\
+	B \vec{x} = \begin{pmatrix*}[r] 0 & -1 \\ 2 & 7 \end{pmatrix*} \begin{vect} x \\ y \end{vect} &=& \begin{vect} -y \\ 2x+7y \end{vect} \\
+	\hline \\
+	\left(\!\begin{pmatrix*}[r] 1 & 2 \\ 3 & 4 \end{pmatrix*} + \begin{pmatrix*}[r] 0 & -1 \\ 2 & 7 \end{pmatrix*}\!\right) &=& \begin{vect} x+y \\ 5x+11y \end{vect} \\
+	\begin{pmatrix*}[r] 1 & 1 \\ 5 & 11 \end{pmatrix*} &=& \begin{pmatrix*}[r] 1 & 1 \\ 5 & 11 \end{pmatrix*} \begin{vect} x \\ y \end{vect}
+\end{eqnarray*}
+
+\subsection{Vermenigvuldigen}
+Vermenigvuldigen gaat componentsgewijs.
+\[2 \cdot C = 2 \cdot \begin{pmatrix*}[r] 4 & 3 & 1 \\ -1 & 2 & 3 \end{pmatrix*} = \begin{pmatrix*}[r] 8 & 6 & 2 \\ -2 & 4 & 6 \end{pmatrix*} \]
+
+\subsection{Rekenregels}
+\[\begin{array}{ll}
+A+B = B+A & \quad \forall A, B \\
+k(A+B) = kA+kB & \quad \forall k, A, B
+\end{array} \]
+
+\subsection{Formele definities}
+\[\begin{array}{lll}
+
+A = (a_{ij}) & i=1, \ldots, m ; j = 1, \ldots, n & \mbox{i rijen, j kolommen} \\
+B = (b_{ij}) && \\
+C = A+B & c_{ij} = a_{ij}+b_{ij} & \\
+D = k \cdot A & d_{ij} = k \cdot a_{ij} \\
+\sum\limits_{i=1}^n \rho_i = \rho_1 + \rho_2 + \ldots + \rho_{n-1} + \rho_n && \\
+A = (a_{ij}) & i = 1, \ldots, m; j = 1, ldots, n & (m \times n) \\
+B = (b_{ij}) & i = 1, \ldots, n; j = 1, ldots, p & (n \times p) \\
+A \cdot B = C = (c_{ij}) & i=1, \ldots m; j = 1, \ldots, p & (m \times p)
+\end{array} \]
+$(m \times n) \times (n \times p) = (m \times p)$, het aantal kolommen in $A$ moet gelijk zijn aan het aantal rijen in $B$. Het inproduct van de $i^e$ rij van $A$ met de $j^e$ kolom van $B$:
+\[ c_{ij} = \sum\limits_{l=1}^n a_{il} \cdot b_{lj} \]
+
+\paragraph{Voorbeeld}
+\[A = \begin{pmatrix*}[r] 1 & 2 \\ 3 & 4 \end{pmatrix*}, B = \begin{pmatrix*}[r] -1 & 2 \\ 4 & 7 \end{pmatrix*} \]
+\[ C = A \cdot B = \begin{pmatrix*}[r] 1 & 2 \\ 3 & 4 \end{pmatrix*} \begin{pmatrix*}[r] -1 & 2 \\ 4 & 7 \end{pmatrix*} = \begin{pmatrix} -1 + 8 & 2+14 \\
+-3 + 16 & 6 +28 \end{pmatrix} = \begin{pmatrix*}[r]7 & 16 \\ 13 & 34 \end{pmatrix*} \]
+
+\paragraph{Voorbeeld}
+\[ \left.\begin{array}{l} A = (3 \times 2) \\
+B = (2 \times 2) \end{array}\right\} C = (3 \times 2) \]
+\[ c_{ij} = \sum\limits_{l=1}^2 a_{il} \cdot b_{lj} = a_{i1} b_{1j} + a_{i2} b_{2j} \]
+
+$a_{i1}$ en $a_{i2}$ zijn de componenten op de $i^e$ rij van $A$. $b_{1j}$ en $b_{2j}$ zijn de componenten van de $j^e$ kolom van $B$.
+
+\paragraph{Voorbeeld}
+\[ A = \begin{pmatrix*}[r] 4 & 3 \\ 7 & 2 \\ 9 & 0 \end{pmatrix*}, B = \begin{pmatrix*}[r] 2 & 5 \\ 1 & 6 \end{pmatrix*} \]
+\[ C = A \cdot B = \begin{pmatrix*}[r] 4 & 3 \\ 7 & 2 \\ 9 & 0 \end{pmatrix*} \begin{pmatrix*}[r] 2 & 5 \\ 1 & 6 \end{pmatrix*} = \begin{pmatrix} 8+3 & 20+18 \\ 14+2 & 35+12 \\ 18+0 & 45+0 \end{pmatrix} = \begin{pmatrix*}[r] 11 & 38 \\ 16 & 47 \\ 18 & 45 \end{pmatrix*} \]
+
+\paragraph{Voorbeeld}
+\[ A = \begin{pmatrix*}[r] 5 & 1 \\ 3 & -2 \end{pmatrix*}, B = \begin{pmatrix*}[r] 2 & 0 \\ 4 & 3 \end{pmatrix*} \]
+\[ A \cdot B = \begin{pmatrix*}[r] 5 & 1 \\ 3 & -2 \end{pmatrix*} \begin{pmatrix*}[r] 2 & 0 \\ 4 & 3 \end{pmatrix*} = \begin{pmatrix} 10+4 & 0+3 \\ 6-8 & 0-6 \end{pmatrix} = \begin{pmatrix*}[r] 14 & 3 \\ -2 & -6 \end{pmatrix*} \]
+\[ B \cdot A = \begin{pmatrix*}[r] 2 & 0 \\ 4 & 3 \end{pmatrix*} \begin{pmatrix*}[r] 5 & 1 \\ 3 & -2 \end{pmatrix*} = \begin{pmatrix} 10+0 & 2+0 \\ 20+9 & 4-6 \end{pmatrix} = \begin{pmatrix*}[r] 10 & 2 \\ 29 & -2 \end{pmatrix*} \]
+
+Let op: $A \cdot B \neq B \cdot A$. \index{$A \cdot B \neq B \cdot A$}
+
+\paragraph{Voorbeeld}
+\[ \begin{pmatrix} 1 & 1 \\ 100 & 100 \end{pmatrix} \begin{pmatrix*}[r] -1 & 1 \\ 1 & -1 \end{pmatrix*} = \begin{pmatrix*}[r] 0 & 0 \\ 0 & 0 \end{pmatrix*} \]
+
+\textbf{Waarschuwing:} dit betekent dus dat als $AB = 0$ dat niet betekent dat $A=0$ of $B=0$.
+
+\[ \begin{pmatrix*}[r] -1 & 1 \\ 1 & -1 \end{pmatrix*} \begin{pmatrix} 1 & 1 \\ 100 & 100 \end{pmatrix} = \begin{pmatrix*}[r] 99 & 99 \\ -99 & -99 \end{pmatrix*} \neq 0 \]
+
+\textbf{Waarschuwing:} $AB=0$ betekent dus niet dat $BA=0$
+
+\[ \begin{pmatrix} 1 & 1 \\ 100 & 100 \end{pmatrix} \begin{pmatrix*}[r] -3 & 1 \\ 3 & -1 \end{pmatrix*} = \begin{pmatrix*}[r] 0 & 0 \\ 0 & 0 \end{pmatrix*} \]
+
+\textbf{Waarschuwing:} $AB = AC$ betekent niet dat $B=C$.
+
+\subsection{Rekenregels}
+\[ A(B+C) = AB + AC \]
+\[ (AB)C = A(BC) \]
+\[ (B+C)A = BA + CA \]
+
+\paragraph{Twee praktijd voorbeelden}
+\begin{enumerate}
+\item Verhuizen:
+	\[ \vec{x_{n+1}} = A \vec{x_n} \quad \vec{x_0} = \mbox{start} \]
+	\[ \vec{x_2} = A \vec{x_1} = AA \vec{x_0} \]
+\item Economie:
+\begin{table}[h!]
+	\begin{tabular}{l|cc}
+		Kosten per product & Product 1 &  Product 2 \\
+		\hline
+		Grondstof & 1,2 & 1,6 \\
+		Arbeid & 0,3 & 0,4 \\
+		Diversen & 0,5 & 0,6
+	\end{tabular}
+	\caption{Matrix A $(3 \times 2)$}
+\end{table}
+
+\begin{table}[h!]
+	\begin{tabular}{l|cccc}
+		Productie per kwartaal & Q1 & Q2 & Q3 & Q4 \\
+		\hline
+		Product 1 & 3 & 8 & 6 & 9 \\
+		Product 2 & 6 & 2 & 4 & 3
+	\end{tabular}
+	\caption{Matrix B $(2 \times 4)$}
+\end{table}
+
+De kosten per kwartaal kun je berekenen door de tabellen te combineren als matrix.
+\[ \frac{\mbox{kosten}}{\mbox{prod}} \times \frac{\mbox{prod}}{\mbox{kwartaal}} \to A \cdot B \]
+\[ AB = \begin{pmatrix*}[r] 1,2 & 1,6 \\ 0,3 & 0,4 \\ 0,5 & 0,6 \end{pmatrix*} \begin{pmatrix*}[r] 3 & 8 & 6 & 9 \\ 6 & 2 & 4 & 3 \end{pmatrix*} = \begin{pmatrix*}[r]
+	13,2 & 12,8 & 13,6 & 15,6 \\
+	3,3 & 3,2 & 3,4 & 3,9 \\
+	5,1 & 5,2 & 5,4 & 6,3
+\end{pmatrix*} \]
+
+Hierbij zijn de kolommen de kwartalen en elke rij is een type van de kosten.
+
+\end{enumerate}
+
+\subsection{Speciale matrices}
+\subsubsection{Macht verheffen}
+\[ A^k = A \cdot A \cdot ~ \cdots ~ \cdot A \quad \mbox{(k-keer)} \]
+
+\[ A^0 = I = \begin{pmatrix}
+	1 & & &\sigma \\
+	& 1 & &\\
+	& & \ddots & \\
+	\sigma & & & 1
+\end{pmatrix} \]
+	
+	Hierbij staat $I$ voor de \emph{eenheidsmatrix} \index{eenheidsmatrix}, de matrix met alleen maar \'e\'enen op de diagonaal, de rest zijn nullen (aangegeven met $\sigma$. Deze diagonaal noemen we de \emph{hoofddiagonaal}. \index{hoofddiagonaal} De hoofddiagonaal bij een $(n \times n)$ matrix bestaat altijd uit de elementen $a_{11}, a_{22}, \ldots, a_{nn}$.
+	
+	$AI = A$ en $IA = A$ dus $I$ is neutraal bij vermenigvuldiging.
+
+\subsubsection{Getransponeerde matrix}
+\[ A = (a_{ij}) \]
+\[ A^T = (a_{ji}) \]
+Dit heet ook wel de getransponeerde matrix, je verwisselt de rijen met de kolommen.
+
+\paragraph{Voorbeeld}
+\[ A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \to A^T = \begin{pmatrix} 1 & 3 \\ 2 & 4 \end{pmatrix} \]
+Dit komt neer op spiegelen in de hoofddiagonaal.
+
+\paragraph{Voorbeeld}
+\[ B = \begin{pmatrix*}[r] 5 & -8 & 1 \\ 4 & 0 & 0 \end{pmatrix*} \to A^T = \begin{pmatrix*}[r] 5 & 4 \\ -8 & 0 \\ 1 & 0 \end{pmatrix*} \]
+Hierbij ga je dus van $(2 \times 3)$ naar $(3 \times 2)$.
+
+\paragraph{Voorbeeld}
+\[C = \begin{pmatrix*} 6 & 2 & 3 \end{pmatrix*} \to C^T = \begin{vect} 6 \\ 2 \\ 3 \end{vect} \]
+Gaat van $(1 \times 3)$ naar $(3 \times 1)$, oftewel een vector.
+
+\subsubsection{Rekenregels voor $A^T$}
+\begin{eqnarray*}
+	{(A^T)}^T &=& A \\
+	(A+B)^T &=& A^T + B^T \\
+	(kA)^T &=& kA^T \\
+	(AB)^T &=& B^T A^T \mbox{dus} (AB)^T \neq A^T B^T \\
+\end{eqnarray*}
+
+\subsubsection{Diagonaal matrix}
+\[ D = \begin{pmatrix}
+	d_1 & & &\sigma \\
+	& d_2 & &\\
+	& & \ddots & \\
+	\sigma & & & d_m
+\end{pmatrix} \]
+\[ D^n = \begin{pmatrix}
+	d_1^n & & &\sigma \\
+	& d_2^n & &\\
+	& & \ddots & \\
+	\sigma & & & d_m^n
+\end{pmatrix} \]
+\[ I^N = I \]
+
+\paragraph{Voorbeeld}
+\[D = \begin{pmatrix*}[r] -1 & & \sigma \\ & 3 &  \\ \sigma && -2 \end{pmatrix*} \to D^2 = \begin{pmatrix*}[r] 1 & & \sigma \\ & 9 &  \\ \sigma && 4 \end{pmatrix*} \]

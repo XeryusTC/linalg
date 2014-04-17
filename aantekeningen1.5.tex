@@ -1,0 +1,70 @@
+\section{Oplossingen van lineaire systemen (\S 1.5)}
+$A \vec{x} = \vec{b}$ is een \emph{inhomogene matrix vergelijking}. \index{inhomogene matrix vergelijking} $A \vec{x} = \vec{0}$ is een \emph{homogene matrix vergelijking} ($\vec{0}$ is de nulvector). \index{homogene matrix vergelijking}
+
+\subsection{Homogene matrix vergelijking}
+
+Uitspraken over $A \vec{x} = \vec{0}$:
+\begin{enumerate}
+	\item $\vec{x} = \vec{0}$ is altijd een oplossing.
+	\item Als $\vec{x} \neq \vec{0}$ dan is er altijd een vrije variabele en dus zijn er ook oneindig veel oplossingen.
+\end{enumerate}
+
+\paragraph{Voorbeeld}
+\[\left(\! \begin{array}{rrr|r}
+	3 & 5 & -4 & 0 \\
+	-3 & -2 & 4 & 0 \\
+	6 & 1 & -8 & 0
+\end{array} \!\right) \sim \left(\! \begin{array}{rrr|r}
+	3 & 0 & -4 & 0 \\
+	0 & 1 & 0 & 0 \\
+	0 & 0 & 0 & 0
+\end{array} \!\right) \to \left\{ \begin{array}{l}
+	x_1 = \sfrac{4}{3} x_3 \\
+	x_2 = 0 \cdot x_3 \\
+	x_3 = \mbox{vrij} = 1 \cdot x_3
+\end{array} \right. \]
+\[ \vec{x} = \begin{vect} x_1 \\ x_2 \\ x_3 \end{vect} = \begin{vect} \sfrac{4}{3} \cdot x_3 \\ 0 \cdot x_3 \\ 1 \cdot x_3 \end{vect} = 
+x_3 \cdot \begin{vect} \sfrac{4}{3} \\ 0 \\ 1 \end{vect} = x_3 \vec{v} \mbox{, waarbij } x_3 \in \mathbb{R} \to \infty \mbox{ oplossingen} \]
+
+\paragraph{Voorbeeld} \'E\'en lineaire vergelijking: $10x_1 - 3x_2 - 2x_3 = 0 (A \vec{x} = \vec{0})$
+\[ \left(\! \begin{array}{rrr|r}
+	10 & -3 & -2 & 0 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0
+\end{array} \!\right) \sim \left(\!\begin{array}{rrr|r}
+	1 & -0,3 & -0,2 & 0 \\
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0
+\end{array}\!\right) \to \left\{\!\begin{array}{l}
+	x_2 = \mbox{vrij} \\
+	x_3 = \mbox{vrij}
+\end{array} \right. \]
+Algemene oplossing is de volgende \emph{parametrische vectornotatie} \index{parametrische vectornotatie}:
+\[ \vec{x} = \begin{vect} x_1 \\ x_2 \\ x_3 \end{vect} = \begin{vect} 0,3x_2 + 0,2x_3 \\ x_2 \\ x_3 \end{vect} = \begin{vect} 0,3x_2 \\ x_2 \\ 0 \end{vect} + \begin{vect} 0.2x_3 \\ 0 \\ x_3 \end{vect} = x_2 \begin{vect} 0,3 \\ 1 \\ 0 \end{vect} + x_3 \begin{vect} 0,2 \\ 0 \\ 1 \end{vect} = x_2 \cdot \vec{u} + x_3 \cdot \vec{v} \]
+Spant $\{ \vec{u}, \vec{v} \}$ met $\vec{u} = \begin{vect} 0,3 \\ 1 \\ 0 \end{vect}$ en $ \vec{v} = \begin{vect} 0,2 \\ 0 \\ 1 \end{vect}$ is de oplossing.
+
+\paragraph{Algemeen} oplossing van de homogene vergelijking $A \vec{x} = \vec{0}$ kan altijd worden geschreven als span $\{ \vec{v}_1, \ldots, \vec{v}_p$.
+
+\subsection{Inhomogene matrix vergelijking}
+
+\paragraph{Voorbeeld}
+\[ A = \begin{pmatrix*}
+	3 & 5 & -4 \\
+	-3 & -2 & 4 \\
+	6 & 1 & -8
+\end{pmatrix*}, \vec{b} = \begin{vect} 7 \\ -1 \\ -4 \end{vect} \quad A\vec{x} = \vec{b} \]
+\[ \left(\!\begin{array}{rrr|r}
+	3 & 5 & -4 & 7 \\
+	-3 & -2 & 4 & -1 \\
+	6 & 1 & -8 & -4
+\end{array} \!\right) \sim \left(\!\begin{array}{rrr|r}
+	1 & 0 & - \sfrac{4}{3} & -1 \\
+	0 & 1 & 0 & 2 \\
+	0 & 0 & 0 & 0
+\end{array} \!\right) \to \left\{ \begin{array}{l}
+	x_1 = \sfrac{4}{3} x_3 -1 \\
+	x_2 = 2 \\
+	x_3 = \mbox{vrij}
+\end{array} \right. \]
+\[ \vec{x} = \begin{vect} x_1 \\ x_2 \\ x_3 \end{vect} = \begin{vect} -1 + \sfrac{4}{3} x_3 \\ 2 \\ x_3 \end{vect} = \begin{vect} -1 \\ 2 \\ 0 \end{vect} + x_3 \begin{vect} \sfrac{4}{3} \\ 0 \\ 1 \end{vect} = \vec{p} + x_3\vec{v}, x_3 \in \mathbb{R} \]
+Oplossing van $A\vec{x} = \vec{b}$ is een vector $\vec{p}$ + de oplossing van $A\vec{x} = \vec{0}$. Deze oplossing is ook een parametrische vectornotatie.

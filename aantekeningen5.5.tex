@@ -1,0 +1,108 @@
+\section{Complexe eigenwaarden en eigenvectoren (\S5.5)}
+$i = sqrt{-1}$ \\
+$z = a+ib$ \\
+$\overline{z} = a-ib$ heet de \emph{complex toegevoegde}\index{complex toegevoegde} \\
+$\overline{xy} = \overline{x} \cdot \overline{y}$
+
+\paragraph{Voorbeeld} Zuiver imaginair
+
+$A = \begin{pmatrix*}[r] 0 & -1 \\ 1 & 0 \end{pmatrix*}, \mbox{det} \begin{pmatrix*}[r] - \lambda & -1 \\ 1 & - \lambda \end{pmatrix*} = \lambda^2 + 1 = 0 \to \lambda \pm i$
+
+\subparagraph{Eigenvector bij $\lambda = i$:}
+\[ \begin{pmatrix*}[r] -i & -1 \\ 1 & -i \end{pmatrix*} \begin{vect} x \\ y \end{vect} = \begin{vect} 0 \\ 0 \end{vect} \to -ix-y = 0 \to y = -ix \]
+
+Eigenvector $\begin{vect} x \\ -ix \end{vect} \to \vec{v_1} = \begin{vect} 1 \\ -i \end{vect}$
+
+\subparagraph{Eigenvector bij $\lambda = -i$:}
+\[ \begin{pmatrix*}[r] i & -1 \\ 1 & i \end{pmatrix*} \begin{vect} x \\ y \end{vect} = \begin{vect} 0 \\ 0 \end{vect} \to ix-y = 0 \to y = ix \]
+
+Eigenvector $\begin{vect} x \\ ix \end{vect} \to \vec{v_1} = \begin{vect} 1 \\ i \end{vect}$
+
+\paragraph{Voorbeeld} $A = \begin{pmatrix*}[r] 5 & -6 \\ 7 \frac{1}{2} & 11 \end{pmatrix*}$
+\[ \mbox{det} \begin{pmatrix} 5 - \lambda & -6 \\ 7 \frac{1}{2} & 11 - \lambda \end{pmatrix} = \lambda^2 - 16 \lambda + 100 = 0 \]
+\[ \lambda = \frac{16 \pm \sqrt{256-400}}{2} = \frac{16 \pm \sqrt{-144}}{2} = \frac{16 \pm 12i}{2} = 8 \pm 6i \]
+$\lambda_1 = 8 + 6i, \lambda_2 = 8 - 6i$
+
+\subparagraph{Eigenvector bij $\lambda = 8+6i$:}
+\begin{eqnarray*}
+	\begin{pmatrix}
+		5 - (8 + 6i) & -6 \\
+		7 \frac{1}{2} & 11-(8+6i)
+	\end{pmatrix} \begin{vect} x \\ y \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \\
+	\begin{pmatrix}
+		-3 - 6i & -6 \\
+		7 \frac{1}{2} & 3 - 6i
+	\end{pmatrix} \begin{vect} x \\ y \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \\
+	\sim \begin{pmatrix}
+		-3 - 6i & -6 \\
+		0 & 0
+	\end{pmatrix} \begin{vect} x \\ y \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \to \begin{array}{rlc}
+		(-3-6i)x - 6y &=& 0 \\
+		y &=& (-\frac{1}{2}-i)x
+	\end{array}
+\end{eqnarray*}
+
+Eigenvector: $\begin{vect} x \\ (- \frac{1}{2}-i)x \end{vect} = x \begin{vect} 1 \\ - \frac{1}{2} - i \end{vect} \to \begin{vect} 1 \\ - \frac{1}{2} \end{vect} + i \begin{vect} 0 \\ -1 \end{vect}$
+
+\subparagraph{Eigenvector bij $\lambda = 8-6i$:}
+\begin{eqnarray*}
+	\begin{pmatrix}
+		5 - (8 - 6i) & -6 \\
+		7 \frac{1}{2} & 11-(8-6i)
+	\end{pmatrix} \begin{vect} x \\ y \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \\
+	\sim \begin{pmatrix}
+		-3 + 6i & -6 \\
+		0 & 0
+	\end{pmatrix} \begin{vect} x \\ y \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \to \begin{array}{rlc}
+		(-3+6i)x - 6y &=& 0 \\
+		y &=& (-\frac{1}{2}+i)x
+	\end{array}
+\end{eqnarray*}
+
+Eigenvector: $\begin{vect} x \\ (- \frac{1}{2}+i)x \end{vect} \to \begin{vect} 1 \\ - \frac{1}{2} \end{vect} - i \begin{vect} 0 \\ -1 \end{vect}$
+
+$\left.\begin{array}{l}
+	\lambda_1 = 8+6i \\
+	\lambda_2 = 8-6i
+\end{array}\right\}$ Dit zijn elkaars complex toegevoegde, complexe eigenwaarden komen in paren.
+
+$\left.\begin{array}{l}
+	\vec{v}_1 = \begin{vect} 1 \\ - 1\sfrac{1}{2} \end{vect} + i \begin{vect} 0 \\ -1 \end{vect} \\
+	\vec{v}_2 = \begin{vect} 1 \\ -1\sfrac{1}{2} \end{vect} - i \begin{vect} 0 \\ -1 \end{vect}
+\end{array}\right\}$
+
+Eigenvectoren komen ook in paren. Dit betekent dus dat je maar een van de eigenvectoren hoeft uit te rekenen en je kan de complex toegevoegde daarvan als de andere eigenvector gebruiken.
+
+\subsection{Draaien en $\mathbb{C}^n$}
+Bij een matrix $C = \begin{pmatrix*}[r] a & -b \\ b & a \end{pmatrix*}$ waarbij $a$ en $b$ allebei in $\mathbb{R}$ dan zijn de eigenwaarden $\lambda = a \pm bi$ en dan is $|\lambda| = r = \sqrt{a^2 + b^2}$ zodat:
+\[ C = \begin{pmatrix*}[r] a & -b \\ b & a \end{pmatrix*} = r \cdot \begin{pmatrix}
+	\frac{a}{r} & -\frac{b}{r} \\
+	\frac{b}{r} & \frac{a}{r}
+\end{pmatrix} = \begin{pmatrix} r & 0 \\ 0 & r \end{pmatrix} \begin{pmatrix}
+	\cos \varphi & -\sin \varphi \\
+	\sin \varphi & \cos \varphi
+\end{pmatrix} \]
+Hierbij geeft $\varphi$ dus de draaiing in het complexe vlak (het \emph{argument}\index{argument}) aan. $\varphi$ is ook de grote van de draaiing bij een transformatie.
+
+\paragraph{Stelling 9} \index{Stellingen!Hoofdstuk 5!Stelling 9}
+Bij een $2 \times 2$ matrix A met complexe eigenwaarde $\lambda = a-bi$ en een eigenvector $\vec{v}$ in $\mathbb{C}^2$ dan bestaan er een rotatie matrix $C$ en een bijbehorende matrix $P$ zodat $A = PCP^{-1}$.
+\[C = \begin{pmatrix*}[r] a & -b \\ b & a \end{pmatrix*} \]
+\[ P = \begin{pmatrix} \mbox{Re } \vec{v} & \mbox{Im } \vec{v} \end{pmatrix} \]
+
+\paragraph{Voorbeeld} $A = \begin{pmatrix} 0.5 & -0.6 \\ 0.75 & 1.1 \end{pmatrix}, \lambda = 0.8 - 0.6i, \vec{v}_1 = \begin{vect} -2 - 4i \\ 5 \end{vect}$.
+Dit geeft:
+\[ P = \begin{pmatrix} \mbox{Re } \vec{v} & \mbox{Im } \vec{v} \end{pmatrix} = \begin{pmatrix*}[r] -2 & -4 \\ 5 & 0 \end{pmatrix*} \]
+\[ C = P^{-1}AP = \frac{1}{2} \begin{pmatrix*}[r]
+	0 & 4 \\
+	-5 & -2
+\end{pmatrix*} \begin{pmatrix}
+	0.5 & -0.6 \\
+	0.75 & 1.1
+\end{pmatrix} \begin{pmatrix*}[r]
+	-2 & -4 \\
+	5 & 0
+\end{pmatrix*} = \begin{pmatrix}
+	0.8 & -0.6 \\
+	0.6 & 0.8
+\end{pmatrix} \]
+$C$ is dus de rotatie die hoort bij een translatie van matrix $A$. Dit is een \emph{pure translatie}\index{pure translatie} omdat $|\lambda|^2 = (0.8)^2 + (0.6)^2 = 1$.

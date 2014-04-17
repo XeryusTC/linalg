@@ -1,0 +1,83 @@
+\section{Orthogonale basis (\S6.1)}
+\paragraph{2D:} $\begin{vect} 1 \\ 1 \end{vect}$ en $\begin{vect} 1 \\ 0 \end{vect}$ zijn basisvectoren die samen $\vec{v} = c_1 \begin{vect} 1 \\ 1 \end{vect} + c_2 \begin{vect} 1 \\ 0 \end{vect}$ maken. Als deze basisvectoren loodrecht ($\perp$) op elkaar staan dan vormen ze een \emph{orthogonale basis} \index{orthogonale basis}. Bv: $\begin{vect} 1 \\ 1 \end{vect}$ en $\begin{vect} -1 \\ 1 \end{vect}$. 
+
+Als de vectoren bovendien allebei een lengte van 1 hebben dan vormen ze een \emph{orthonormale basis} \index{orthonormale basis}. Bij $\{ \vec{v}_1, \vec{v}_2 \}$ geldt dus: $\vec{v}_1 \perp \vec{v}_2$ en $|\vec{v}_1| = |\vec{v}_2| = 1$. Bij bovenstaande vectoren is dit dus $\displaystyle \frac{1}{\sqrt{2}} \begin{vect} 1 \\ 1 \end{vect} \mbox{ en } \frac{1}{\sqrt{2}} \begin{vect} -1 \\ 1 \end{vect}$.
+
+\paragraph{Voorbeeld in 3D:} $\vec{v}_1 = \begin{vect} 3 \\ 1 \\ 1 \end{vect}, \vec{v}_2 = \begin{vect} -1 \\ 2 \\ 1 \end{vect}, \vec{v}_3 = \begin{vect} - \sfrac{1}{2} \\ -2 \\ \sfrac{7}{2} \end{vect}$ is dit een orthogonale basis?
+\[ \vec{v}_1 \perp \vec{v}_2: \vec{v}_1 \cdot \vec{v}_2 = \begin{vect} 3 \\ 1 \\ 1 \end{vect} \cdot \begin{vect} -1 \\ 2 \\ 1 \end{vect} = -3 + 2 + 1 = 0 \]
+\[ \vec{v}_1 \perp \vec{v}_3: \vec{v}_1 \cdot \vec{v}_3 = \begin{vect} 3 \\ 1 \\ 1 \end{vect} \cdot \begin{vect} -\sfrac{1}{2} \\ -2 \\ \sfrac{7}{2} \end{vect} = - 1 \frac{1}{2} - 2 + 3 \frac{1}{2} = 0 \]
+\[ \vec{v}_2 \perp \vec{v}_3: \vec{v}_3 \cdot \vec{v}_3 = \begin{vect} -1 \\ 2 \\ 1 \end{vect} \cdot \begin{vect} -\sfrac{1}{2} \\ -2 \\ \sfrac{7}{2} \end{vect} = \sfrac{1}{2} - 4 + 3 \frac{1}{2} = 0 \]
+Alles staat dus loodrecht op elkaar dus het is een orthogonale basis. Als je alle vectoren normaliseert (berekend de eenheidsvector) dan krijg je de orthonormale basis.
+
+\section{Lijnen, vlakken en projecties (\S6.2 \& \S6.3)}
+Bij vergelijking $y = 2x + 3$ is de richtingsco\"efficient 2, de richtingsvector is dan $\begin{vect} 1 \\ 2 \end{vect}$. Als je dan de \emph{steunvector} \index{steunvector} $\begin{vect} 0 \\ 3 \end{vect}$ gebruikt kan je de vergelijking herschrijven als de \emph{vectorvoorstelling}\index{vectorvoorstelling} $\begin{vect} 0 \\ 3 \end{vect} + \lambda \begin{vect} 1 \\ 2 \end{vect}, \lambda \in \mathbb{R}$.
+\paragraph{Vraag:} ligt $(2, 7)$ op deze lijn?
+\[ \left\{ \begin{array}{lcl}
+	0 + \lambda = 2 &\to& \lambda = 2 \\
+	3 + 2\lambda=7 &\to& \lambda = 2
+\end{array}\right. \]
+$(2, 7)$ ligt dus op de lijn.
+
+\subsection{Normaalvergelijking}
+$2x-y=-3$ heet de \emph{normaalvergelijking} \index{normaalvergelijking}. Dit geeft de richtingsvector $\begin{vect} 2 \\ -1 \end{vect}$, deze componenten komen rechtstreeks uit de normaalvergelijking en deze vector staat loodrecht op de richtingsvector van de vergelijking $y = 2x-3$.
+
+\subsection{Snijdende lijnen}
+Er zijn drie methoden om het snijpunt van de lijnen $y=2x+3$ en $y=-x-3$ te bepalen:
+\begin{enumerate}
+	\item gelijkstellen: $2x+3=-x-3 \to x=-2 \to y=-1$. Snijpunt: $(-2, -1)$.
+	\item vectorvoorstelling + vergelijking: $\begin{vect} 0 \\ 3 \end{vect} + \lambda \begin{vect} 1 \\ 2 \end{vect}, y = -x -3$ Als je de vectorvoorstelling invult in de vergelijking krijg je:
+	\[ (3+2 \lambda) = -(0+\lambda)-3 \to 3\lambda = -6 \to \lambda=-2 \] Snijpunt:
+	\[ \begin{vect} 0 \\ 3 \end{vect} -2 \begin{vect} 1 \\ 2 \end{vect} = \begin{vect} -2 \\ -1 \end{vect} \]
+	\item Twee vectorvoorstellingen: $\begin{vect} 0 \\ 3 \end{vect} + \lambda \begin{vect} 1 \\ 2 \end{vect}, \begin{vect} -1 \\ -2 \end{vect} + \mu \begin{vect} 1 \\ -1 \end{vect}$ geeft het stelsel van vergelijkingen:
+	\[ \left\{ \begin{array}{lcr}
+		0 + \lambda &=& -1 + \mu \\
+		3 + 2\lambda &=& -2 - \mu
+		\end{array}\right. \to \lambda = -2, \mu = -1 \]
+	Snijpunt: \begin{eqnarray*}
+		\begin{vect} 0 \\ 3 \end{vect} -2 \begin{vect} 1 \\ 2 \end{vect} &=& \begin{vect} -2 \\ -1 \end{vect} \\
+		\begin{vect} -1 \\ -2 \end{vect} -1 \begin{vect} 1 \\ -1 \end{vect} &=& \begin{vect} -2 \\ -1 \end{vect}
+	\end{eqnarray*}
+\end{enumerate}
+
+\subsection{Projectie}
+\paragraph{Voorbeeld:} $l: y = 2x+3 \to l: 2x-y=-3, P=(1,1)$ Wat is de projectie $Q$ van $P$ op $l$,  oftewel het punt op $l$ wat het dichts bij $P$ ligt. $PQ \perp l$. Construeer lijn $m$ zodanig dat $m \perp l$ en $P$ ligt op $m$. $m$ baseren op normaalvergelijking van $l$: richtingsvector $m$ is $\begin{vect} 2 \\ -1 \end{vect}$. Als je $P$ als steunvector gebruikt dan $m: \begin{vect} 1 \\ 1 \end{vect} + \mu \begin{vect} 2 \\ -1 \end{vect}$. Snijpunt:
+\[ Q: (1-\mu) = 2(1+2\mu)+3 \to -5\mu = 4 \to \mu = -\sfrac{4}{5} \]
+invulen in $m:$
+\[ Q = \begin{vect} 1 \\ 1 \end{vect} - \frac{4}{5} \begin{vect} 2 \\ -1 \end{vect} = \begin{vect} -\sfrac{3}{5} \\ \sfrac{9}{5} \end{vect} \].
+
+Wordt $\begin{vect} 3 \\ 0 \end{vect}$ ook op $Q$ geprojecteerd? Oftewel ligt $\begin{vect} 3 \\ 0 \end{vect}$ op $m$?
+\[ \begin{vect} 1 \\ 1 \end{vect} + \mu \begin{vect} 2 \\ -1 \end{vect} = \begin{vect} 3 \\ 0 \end{vect} \]
+\[ \left\{ \begin{array}{rcr}
+	1 + 2\mu = 3 &\to& \mu = 1 \\
+	1 - \mu = 0 &\to& \mu = 1
+\end{array}\right. \]
+Dus $\begin{vect} 3 \\ 0 \end{vect}$ wordt op $Q$ geprojecteerd.
+
+Wat is de afstand van $P$ tot $l$? Oftewel wat is de lengte van lijnstuk $PQ$?
+\[ |\vec{PQ}| = \left| \begin{vect} -\sfrac{3}{5} \\ \sfrac{9}{5} \end{vect} - \begin{vect} 1 \\ 1 \end{vect} \right| = \left| \begin{vect} -\sfrac{8}{5} \\ \sfrac{4}{5} \end{vect} \right| = \sqrt{(-\sfrac{8}{5})^2 + (\sfrac{4}{5})^2} = \frac{4}{5}\sqrt{5} \]
+
+\subsection{3D vlakken}
+Algemene vorm: $ax + by +cz = d$.
+
+\paragraph{Voorbeeld:} $2x + 3y - 4z = 2$. De co\"efficienten geven de richting aan van de \emph{normaalvector}\index{normaalvector} op het vlak: $\vec{n} = \begin{vect} 2 \\ 3 \\ -4 \end{vect} \perp \mbox{ op vlak } 2x+3y-4z=2$. Dit is het resultaat van inproduct vergelijking: $\begin{vect} 2 \\ 3 \\ -4 \end{vect} \begin{vect} x \\ y \\ z \end{vect} = 2$.
+
+$\vec{v}_1$ en $\vec{v}_2$ spannen het vlak op: $\vec{v}_1 \cdot \vec{n} = 0, \vec{v}_2 \cdot \vec{n} = 0: \vec{v}_1 = \begin{vect} 2 \\ 0 \\ 1 \end{vect}, \vec{v}_2 = \begin{vect} 0 \\ 4 \\ 3 \end{vect}$. Een willekeurige vector in het vlak:
+\[ \vec{v} = \begin{vect} 1 \\ 0 \\ 0 \end{vect} + c_1 \begin{vect} 2 \\ 0 \\ 1 \end{vect} + c_2 \begin{vect} 0 \\ 4 \\ 3 \end{vect} \]
+
+\subsection{Lijn en vlak snijden}
+Vlak $v: 2x + 3y - 4z = 2$, lijn $l: \begin{vect} 3 \\ -1 \\ 2 \sfrac{1}{2} \end{vect} + \lambda \begin{vect} 1 \\ -1 \\ 2 \end{vect}$. Dit geeft de snijpunt vergelijking: $2(3+\lambda) +3(-1-\lambda) -4(2\sfrac{1}{2} + 2 \lambda) = 2 \to \lambda = -1$. Snijpunt $s: \begin{vect} 3 \\ -1 \\ 2 \sfrac{1}{2} \end{vect} -1 \begin{vect} 1 \\ -1 \\ 2 \end{vect} = \begin{vect} 3 - 1 \\ -1 + 1 \\ 2\sfrac{1}{2} -2 \end{vect} = \begin{vect} 2 \\ 0 \\ \sfrac{1}{2} \end{vect}$.
+
+\subsection{Snijdende vlakken}
+\paragraph{Voorbeeld} $v: 2x + 3y - 4z = 2, w: x+y-2z=1$. $v$ in vectorvoorstelling: $c_1 \begin{vect} 2 \\ 0 \\ 1 \end{vect} + c_2 \begin{vect} 3 \\ -2 \\ 0 \end{vect}$. Invullen in de vergelijking voor w geeft:
+\[ (1 + 2c_1 + 3c_2) + (-2c_2) -2(c_1) = 1 \to c_2 = 0 \].
+Vul dit resultaat in in de vectorvoorstelling van v: $\begin{vect} 1 \\ 0 \\ 0 \end{vect} + c_1 \begin{vect} 2 \\ 0 \\ 1 \end{vect}$, dit is de snijlijn van $v$ en $w$.
+
+\subsection{Projectie van $P$ op $v$}
+Construeer $m$ zodanig dat $m \perp v$ en $P$ op $m$. $v: 2x+3y-4z =2, P = (2\sfrac{1}{2}, 2, -5)$.
+\[ m: \begin{vect} 2\sfrac{1}{2} \\ 2 \\ -5 \end{vect} + \mu \begin{vect} 2 \\ 3 \\ -4 \end{vect} \]
+$P$ is dus het steunpunt en de co\"efficienten van $v$ zijn de richtingsvector. $m$ en $v$ snijden:
+\[ 2(2 \sfrac{1}{2} + 2 \mu) + 3(2+3\mu) -4(-5 -4\mu)=2 \to \mu=-1 \]
+\[ \to Q = \begin{vect} 2 \sfrac{1}{2} \\ 2 \\ -5 \end{vect} - \begin{vect} 2 \\ 3 \\ -4 \end{vect} = \begin{vect} \sfrac{1}{2} \\ -1 \\ -1 \end{vect} \]
+
+Wat is de kortste afstand van $P$ tot $v$? Oftewel wat is de afstand van $P$ naar $Q$?
+\[ |\vec{PQ}| = \left| \begin{vect} \sfrac{1}{2} \\ -1 \\ -1 \end{vect} - \begin{vect} 2 \sfrac{1}{2} \\ 2 \\ -5 \end{vect} \right| = \sqrt{29} \]

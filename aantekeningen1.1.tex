@@ -1,0 +1,318 @@
+\section{Vectoren (\S 1.1, \S 6.1, \S 1.3)}
+\subsection{Type grootheden}
+\begin{description}
+\item[Scalar] \index{scalar} \'e\'en getal, bv temperatuur.
+\item[Vector] grootte + richting, bv snelheid.
+\end{description}
+
+\subsection{Notatie}
+Een vector schrijf je met een pijltje of streep boven de variabele (in het boek is de variabele dikgedrukt). De vector zelf bestaat uit 2 of meer getallen boven elkaar met haken er omheen.
+
+\[ \vec{x} = \begin{vect} x_1 \\ x_2 \end{vect} \]
+Hierbij heten $x_1$ en $x_2$ de \emph{componenten} \index{componenten} van de vector.
+
+\subsection{Eigenschappen}
+\begin{itemize}
+\item $\vec{a} = \vec{b}$ zelfde richting en zelfde grootte, ander startpunt is mogelijk.
+
+\item Notatie geeft het startpunt van een vector niet aan, alleen maar de grootte en richting. Bij tekenen neem je aan dat de oorsprong het startpunt is en dan zijn de getallen in de vector de co\"ordinaat van het eindpunt.
+
+	Punten in drie dimensies: $P(x_1, y_1, z_1)$ en $Q(x_2, y_2, z_2)$. De vector van P naar Q is dan: \[ \vec{pq} = \begin{vect}
+	x_2 - x_1 \\
+	y_2 - y_1 \\
+	z_2 - y_1
+	\end{vect} \]
+
+\item De vectoren $\vec{a}$ en $\vec{b}$ zijn gelijk als $\vec{a} = \vec{b}$ oftewel $\begin{array}{c}
+	a_1 = b_1 \\
+	a_2 = b_2 \\
+	a_3 = b_3
+ \end{array}$
+ 
+\[ \vec{a} = \begin{vect} a_1 \\ a_2 \\ a_3 \end{vect}, \vec{b} = \begin{vect} b_1 \\ b_2 \\ b_3 \end{vect} \]
+\end{itemize}
+
+\subsection{Definities}
+\subsubsection{Optellen}
+\[ \vec{a} + \vec{b} = \begin{vect} a_1 \\ a_2 \\ a_3 \end{vect}
+	+ \begin{vect}	b_1 \\ b_2 \\ b_3 \end{vect}
+	= \begin{vect}
+	a_1 + b_1 \\
+	a_2 + b_2 \\
+	a_3 + b_3
+	\end{vect} \to \vec{a} + \vec{b} = \vec{b} + \vec{a} \]
+
+\paragraph{Voorbeeld}
+\[ \begin{vect} 2 \\ 1 \end{vect}
+	+ \begin{vect} 1 \\ 3 \end{vect}
+	= \begin{vect} 3 \\ 4 \end{vect} \]
+Dit voorbeeld staat grafisch weergeven in \autoref{fig:optellen}, je kan hier zien dat het hetzelfde is als de vectoren aan elkaars einde leggen. Dit komt neer op een parallellogram maken.
+\input{graphs/optellen.tex}
+
+\paragraph{Speciaal geval}
+$\vec{u} + \vec{0} = \vec{u}$ betekent dat $\vec{0}$ de \emph{'nulvector'} \index{nulvector} is: $\vec{0} = \begin{vect} 0 \\ 0 \end{vect}$. Hier uit volgt dat $\vec{u} - \vec{u} = \vec{0}$.
+
+\subsubsection{Vermenigvuldigen}
+Hiermee verleng of verkort je de vector in dezelfde lijn. Vermenigvuldigen met negatieve zorgt ervoor dat de vector bovendien 180$^\circ$ draait.
+\[ c \cdot \vec{a} = c \cdot \begin{vect} a_1 \\ a_2 \\ a_3 \end{vect}
+	= \begin{vect}
+	c \cdot a_1 \\
+	c \cdot a_2 \\
+	c \cdot a_3
+	\end{vect} \]
+
+\paragraph{Voorbeeld}
+\input{graphs/vermenigvuldigen.tex}
+\[ -2 \cdot \begin{vect} 2 \\ 1 \end{vect} = \begin{vect} -4 \\ -2 \end{vect} \]
+Dit voorbeeld is getekend in \autoref{fig:vermenigvuldigen}.
+
+\subsubsection{Lineaire eigenschappen van vectoren}
+\[\vec{a} + \vec{b} = \vec{b} + \vec{a} \]
+\[c \cdot (\vec{a} + \vec{b}) = c \cdot \vec{a}  + c \cdot \vec{b} \]
+
+\subsubsection{Eenheidsvectoren of basisvectoren}
+In drie dimensies: \index{eenheidsvector}
+\[ \vec{i} = \begin{vect} 1 \\ 0 \\ 0 \end{vect}, \vec{j} = \begin{vect} 0 \\ 1 \\ 0 \end{vect}, \vec{k} = \begin{vect} 0 \\ 0 \\ 1 \end{vect} \]
+Je kunt uit deze vectoren alle andere vectoren opbouwen
+\[ \vec{a} = \begin{vect} a_1 \\ a_2 \\ a_3 \end{vect}
+	= a_1 \cdot \begin{vect} 1 \\ 0 \\ 0 \end{vect}
+	+ a_2 \cdot \begin{vect} 0 \\ 1 \\ 0 \end{vect}
+	+ a_3 \cdot \begin{vect} 0 \\ 0 \\ 1 \end{vect}
+	= a_1 \cdot \vec{i} + a_2 \cdot \vec{j} + a_3 \cdot \vec{k} \]
+
+\subsubsection{Spansel}
+De set van $ \{ \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n \} $ \\
+$\vec{y} = c_1 \vec{v}_1 + c_2 \vec{v}_2 + \ldots + c_n \vec{v}_n$ lineair opspansel. \\
+$\{\vec{i}, \vec{j}, \vec{k}\}$ spant $\mathbb{R}^3$ op.
+
+\paragraph{Voorbeeld} \[\vec{a} = \begin{vect} 1 \\ 1 \end{vect}, \vec{b} = \begin{vect} 1 \\ 0 \end{vect} \]
+$\vec{y} = \begin{vect} 2 \\ 3 \end{vect} $ is $\vec{y}$ lineaire combinatie van $\vec{a}$ en $\vec{b}$?
+\[ c_1 \begin{vect} 1 \\ 1 \end{vect} + c_2 \begin{vect} 1 \\ 0 \end{vect} = \begin{vect} 2 \\ 3 \end{vect} \to \left\{\!\begin{array}{l} c_1 \cdot 1 + c_2 \cdot 1 = 2 \\ c_1 \cdot 1 + c_2 \cdot 0 = 3 \end{array}\!\right. \to \left\{\!\begin{array}{l} c_1 = 3 \\ c_2 = -1 \end{array}\right. \]
+Dus $\vec{y}$ is een lineaire combinatie van $\vec{a}$ en $\vec{b}$.
+
+\paragraph{Voorbeeld} \[ \vec{a} = \begin{vect} 1 \\ 1 \end{vect}, \vec{b} = \begin{vect} -2 \\ -2 \end{vect}, \vec{y} = \begin{vect} 2 \\ 3 \end{vect} \]
+Ligt $\vec{y}$ op span $\{ \vec{a}, \vec{b} \}$?
+\[ \left\{\!\begin{array}{l} c_1 \cdot 1 + c_2 \cdot -2 = 2 \\ c_1 \cdot 1 + c_2 \cdot -2 = 3 \end{array}\right.\]
+Geen oplossing mogelijk. $\vec{a}$ en $\vec{b}$ liggen op dezelfde lijn terwijl $\vec{y}$ niet op die lijn ligt.
+
+\subsubsection{Lengte vector}
+$\vec{v} = \begin{vect} v_1 \\ v_2 \\ \vdots \\ v_n \end{vect}$ dan is de lengte $\|\vec{v}\| = \sqrt{\vec{v} \cdot \vec{v}} = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2} $
+
+\paragraph{voorbeeld} Je kunt een vector $\vec{u}$ in de richting van $\vec{v} = \begin{vect} 2 \\ 1 \\ 2 \end{vect}$ met lengte 1 berekenen, dit heet de \emph{unitvector} of \emph{eenheidsvector} \index{unitvector} \index{eenheidsvector}.
+\[ \vec{u} = \frac{1}{\|\vec{v}\|} \cdot \vec{v} = \frac{1}{\sqrt{2^2 + 1^2 + 2^2}} \cdot \begin{vect} 2 \\ 1 \\ 2 \end{vect} = \frac{1}{\sqrt{9}} \cdot \begin{vect} 2 \\ 1 \\ 2 \end{vect} = \sfrac{1}{3} \cdot \begin{vect} 2 \\ 1 \\ 2 \end{vect} = \begin{vect} \sfrac{2}{3} \\ \sfrac{1}{3} \\ \sfrac{2}{3} \end{vect} \]
+
+\subsubsection{Inproduct (scalar)}
+
+\[ \vec{a} \cdot \vec{b} = \|\vec{a}\| \cdot \|\vec{b}\| \cdot \cos \alpha = a_1 \cdot b_1 + a_2 \cdot b_2 + a_3 \cdot b_3 \]
+\paragraph{Voorbeeld}
+Wat is hoek $\alpha$ bij de volgende vectoren?
+$\vec{a} = \begin{vect} 2 \\ 1 \end{vect}, \vec{b} = \begin{vect} 1 \\ 3 \end{vect}$ \\
+Oplossing:
+\begin{eqnarray}
+	\vec{a} \cdot \vec{b} &=& \begin{vect} 2 \\ 1 \end{vect} \cdot \begin{vect} 1 \\ 3 \end{vect} = 2 \cdot 1 + 1 \cdot 3 = 5 \label{eqn:benodigd} \\
+	\|\vec{a}\| &=& \sqrt{2^2 + 1^2} = \sqrt{5} \\
+	\|\vec{b}\| &=& \sqrt{1^2 + 3^2} = \sqrt{10} \\
+	\sqrt{5} \cdot \sqrt{10} \cdot \cos \alpha &=& 5 \label{eqn:opmerking} \\
+	\cos \alpha &=& \frac{5}{\sqrt{50}} \\
+	&=& \sfrac{1}{2}\sqrt{2} \\
+	\alpha &=& \sfrac{1}{2} \pi
+\end{eqnarray}
+
+\autoref{eqn:opmerking} volgt uit de definitie van het inproduct en \autoref{eqn:benodigd}.
+\subsection{Stelling: inproduct}
+Als je $\vec{a}$ en $\vec{b}$ staan \emph{loodrecht} \index{loodrecht} op elkaar dan en slechts dan als hun product gelijk is aan nul.
+\[ \vec{a} \cdot \vec{b} = 0 \iff \vec{a} \perp \vec{b} \]
+
+Dit komt doordat $\cos 90^\circ = 0$.
+
+\subsection{Lineaire eigenschappen inproduct}
+\[ \vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u} \]
+\[ (\vec{u} \cdot \vec{v}) \cdot \vec{w} = \vec{u} \cdot \vec{w} + \vec{v} \cdot \vec{w} \]
+
+\section{Stelsel vergelijkingen}
+\subsection{Notatie}
+Bij het stelsel vergelijkingen
+\[ \left\{ \begin{array}{ccccc}
+	5x_1 & - 2x_2 & +x_3 & = & 7 \\
+	3x_1 & +x_2 & +5x_3 & = & 2 \\
+	2x_1 & -5x_2 & & = & -1
+\end{array} \right. \]
+hoort de matrix vergelijking:
+\[ \begin{pmatrix*}[r]
+	5 & -2 & 1 \\
+	3 & 1 & 5 \\
+	2 & -5 & 0
+\end{pmatrix*} \begin{vect} x_1 \\ x_2 \\ x_3 \end{vect} = \begin{vect} 7 \\ 2 \\ 1 \end{vect} \]
+Ofwel:
+\[ A \vec{x} = \vec{b} \]
+$A$ wordt een \emph{matrix} \index{matrix} genoemd, $\vec{x}$ is de vector van onbekenden en $\vec{b}$ wordt het rechter lid vector genoemd.
+
+Hierbij wordt de bovenste rij in de matrix met de vector van onbekenden vermenigvuldigd om het eerste getal in het rechter lid vector. Daarna wordt de tweede rij van de matrix met de vector van onbekenden vermenigvuldigd om tot het tweede getal van de rechter lid vector te komen. Dit blijf je doen tot je alle rijen gehad hebt. Het ziet er dus zo uit:
+\[ \vec{b} = \begin{vect} 5x_1 - 2x_2 +x_3 \\
+	3x_1 +x_2 +5x_3 \\
+	2x_1 - 5x_2 \end{vect} \]
+
+\paragraph{Vraag} \begin{itemize}
+	\item Is er een oplossing?
+	\item Hoevel oplossingen zijn er? Mogelijkheden hierbij zijn: $0, 1, \infty$
+\end{itemize}
+
+\paragraph{Voorbeeld: snijden van lijnen}
+\begin{eqnarray*}
+l_1: y &=& x+1 \\
+l_2: y &=& 3-x \\
+x+1 &=& 3-x \to x = 1, y=2
+\end{eqnarray*}
+Snijpunt $(1, 2)$
+
+Dit kan ook met behulp van matrices:
+\begin{eqnarray*}
+x-y &=& -1 \\
+-x-y &=& -3
+\end{eqnarray*}
+Wat in matrix vorm zo geschreven kan worden:
+\[ \begin{pmatrix*}[r]
+	1 & -1 \\
+	-1 & -1
+\end{pmatrix*} \cdot \begin{vect} x \\ y \end{vect} = \begin{vect} -1 \\ -3 \end{vect} \]
+Dit kan je omschrijven naar een zogenaamde \emph{augmented matrix} \index{augmented matrix} of \emph{uitgebreide matrix} \index{uitgebreide matrix}. Bij een augmented matrix voeg je het rechter lid vector toe als laatste kolom van de matrix met daarvoor een streep. De augmented matrix ziet er dus zo uit:
+\[ \left(\! \begin{array}{cc|c}
+	1 & -1 & -1 \\
+	-1 & -1 & -3
+\end{array} \!\right) \]
+
+\subsection{Schoonvegen van matrix}
+\[ \left(\! \begin{array}{rr|r}
+	1 & -1 & -1 \\
+	-1 & -1 & -3
+\end{array} \!\right) \]
+\[ \sim
+\left(\! \begin{array}{rr|r}
+	1 & -1 & -1 \\
+	0 & -2 & -4
+\end{array} \!\right) \]
+\[ \sim \left(\! \begin{array}{rr|r}
+	1 & -1 & -1 \\
+	0 & 1 & 2
+\end{array} \!\right) \]
+\[ \sim \left(\! \begin{array}{rr|r}
+	1 & 0 & 1 \\
+	0 & 1 & 2
+\end{array} \!\right) \]
+\[ \to 
+\begin{pmatrix}
+	1 & 0 \\
+	0 & 1
+\end{pmatrix} \cdot \begin{vect} x \\ y \end{vect} = \begin{vect} 1 \\ 2 \end{vect} \]
+\[ \to \left\{ \begin{array}{c}
+	1 \cdot x + 0 \cdot y = 1 \\
+	0 \cdot x + 1 \cdot y = 2
+\end{array} \right. \]
+$x=1, y=2$ dus het snijpunt is $(1, 2)$.
+
+\subsubsection{Eenheidsmatrix}
+
+Matrices waarbij op de diagonaal van rechtsboven naar linksonder alleen maar \'e\'enen staan en in de rest van de matrix nullen worden een \emph{eenheidsmatrix} \index{eenheidsmatrix} genoemd.
+\[ \begin{pmatrix}
+	1 & 0 \\
+	0 & 1
+\end{pmatrix} \]
+
+\subsubsection{Schoonveeg regels}
+Bij het schoonvegen van een matrix mag je van de volgende regels gebruik maken:
+\begin{enumerate}
+	\item Hele rijen met een constante vermenigvuldigen. Hierbij mag de constante niet nul zijn.
+	\item Rijen bij elkaar optellen of aftrekken.
+	\item Hele rijen met elkaar verwisselen.
+\end{enumerate}
+Als een rij alleen maar nullen bevat dan heb je $\infty$ oplossingen. matrices A en B zijn \emph{rij equivalent} \index{rij equivalent} als er een set operaties bestaat die matrix A in matrix B verandert en vice versa.
+
+Het is handig om bij de huiswerksets en het tentamen de gebruikte rij operaties te vermelden zodat de mensen die het nakijken weten wat je doet.
+
+\paragraph{Voorbeeld}
+\[ \left\{ \begin{array}{r}
+	2x_1 + x_2 = 1 \\
+	x_1 + x_2 + x_3 = 2 \\
+	-x_2 = 1
+\end{array} \right. \to \left(\! \begin{array}{rrr|r}
+	2 & 1 & 0 & 1 \\
+	1 & 1 & 1 & 2 \\
+	0 & -1 & 0 & 1
+\end{array} \!\right) \]
+Rij 1 + rij 2 geeft:
+\[ \sim \left(\! \begin{array}{rrr|r}
+	2 & 0 & 0 & 2 \\
+	1 & 1 & 1 & 2 \\
+	0 & -1 & 0 & 1
+\end{array} \!\right) \]
+$ \sfrac{1}{2} \cdot $ rij 1 geeft:
+\[ \sim \left(\! \begin{array}{rrr|r}
+	1 & 0 & 0 & 1 \\
+	1 & 1 & 1 & 2 \\
+	0 & -1 & 0 & 1
+\end{array} \!\right) \]
+Rij 2 + rij 3 geeft:
+\[ \sim \left(\! \begin{array}{rrr|r}
+	1 & 0 & 0 & 1 \\
+	1 & 0 & 1 & 3 \\
+	0 & -1 & 0 & 1
+\end{array} \!\right) \]
+Rij 2 - rij 1 geeft:
+\[ \sim \left(\! \begin{array}{rrr|r}
+	1 & 0 & 0 & 1 \\
+	0 & 0 & 1 & 2 \\
+	0 & -1 & 0 & 1
+\end{array} \!\right) \]
+$-1 \cdot$ rij 3 geeft:
+\[ \sim \left(\! \begin{array}{rrr|r}
+	1 & 0 & 0 & 1 \\
+	0 & 0 & 1 & 2 \\
+	0 & 1 & 0 & -1
+\end{array} \!\right) \]
+Verwissel rij 2 en rij 3:
+\[ \sim \left(\! \begin{array}{rrr|r}
+	1 & 0 & 0 & 1 \\
+	0 & 1 & 0 & -1 \\
+	0 & 0 & 1 & 2
+\end{array} \!\right) \to \left\{ \begin{array}{l}
+	x_1 = 1 \\
+	x_2 = -1 \\
+	x_3 = 2
+\end{array} \right. \]
+
+\paragraph{Voorbeeld met constanten} \label{par:constantenprobleem}
+Voor welke $a$ heb je \'e\'en oplossing, bij welke $a$ heb je nul oplossingen en bij welke $a$ heb je $\infty$ oplossingen?
+\[ \left\{ \begin{array}{r}
+	x + y - z = 1 \\
+	2x + 3y + az = 3 \\
+	x + ay +3z = 2
+\end{array} \right. \to \left(\! \begin{array}{rrr|r}
+	1 & 1 & -1 & 1 \\
+	2 & 3 & a & 3 \\
+	1 & a & 3 & 2
+\end{array} \!\right) \]
+Rij 2 - 2 $\cdot$ rij 1
+\[ \left(\! \begin{array}{ccc|c}
+	1 & 1 & -1 & 1 \\
+	0 & 1 & a+2 & 1 \\
+	1 & a & 3 & 2
+\end{array} \!\right) \]
+Rij 3 - rij 1
+\[ \left(\! \begin{array}{ccc|c}
+	1 & 1 & -1 & 1 \\
+	0 & 1 & a+2 & 1 \\
+	0 & a-1 & 4 & 1
+\end{array} \!\right) \]
+Rij 3 - $(a-1) \cdot$ rij 2
+\[ \left(\! \begin{array}{ccc|c}
+	1 & 1 & -1 & 1 \\
+	0 & 1 & a+2 & 1 \\
+	0 & 0 & 4-(a-1)(a+2) & 1-(a-1)\cdot 1 = 2-a
+\end{array} \!\right) \]
+Je kunt rij 3 nu als vergelijking schrijven: $0 \cdot x + 0 \cdot y - (a+3)(a-2) \cdot z = 2-a$
+Dit geeft dan de volgende oplossingen:
+\begin{eqnarray*}
+	a = 2: 0=0 & \to & \infty \mbox{ oplossingen} \\
+	a = -3: 0=5 & \to & 0 \mbox{ oplossingen} \\
+	a \neq 2, a \neq 3 & \to & 1 \mbox{ oplossing}
+\end{eqnarray*}

@@ -1,0 +1,84 @@
+\section{$LU$ factorisatie (\S2.5)}
+$A \vec{x} = \vec{b}$ waarbij $A$ zeer groot (denk in de miljoenen). $A = LU$ waarbij $L$ een beneden driehoeksmatrix is en $U$ een boven driehoeksmatrix.
+\[ A = \begin{pmatrix*}[r]
+	2 & 1 & -1 \\
+	-2 & 2 & 0 \\
+	-2 & 5 & 1
+\end{pmatrix*} =
+\begin{pmatrix*}[r]
+	1 & & \sigma \\
+	-1 & 1 &  \\
+	-1 & 2 & 1 \end{pmatrix*}
+\begin{pmatrix*}[r]
+	2 & 1 & -1 \\
+	& 3 & -1 \\
+	\sigma & & 2
+\end{pmatrix*} \]
+$\vec{b} = \begin{vect} 3 \\ 2 \\ -3 \end{vect} \quad A \vec{x} = \vec{b}$ ofwel $LU \vec{x} = \vec{b} \to L \vec{y} = \vec{b}$
+\begin{enumerate}
+	\item $L \vec{y} = \vec{b} \to \vec{y}$
+	\item $U \vec{x} = \vec{y}$
+\end{enumerate}
+
+\paragraph{Voorbeeld}
+\[ L \vec{y} = \vec{b} \]
+\[ \left(\!\begin{array}{rrr|r}
+	1 & 0 & 0 & 3 \\
+	-1 & 1 & 0 & 2 \\
+	-1 & 2 & 1 & -3
+\end{array}\!\right) \sim
+\left(\!\begin{array}{rrr|r}
+	1 & 0 & 0 & 3 \\
+	0 & 1 & 0 & 5 \\
+	0 & 0 & 1 & -10
+\end{array}\!\right) \to \vec{y} = \begin{vect} 3 \\ 5 \\ -10 \end{vect} \]
+\[ U \vec{x} = \vec{y} \]
+\[ \left(\!\begin{array}{rrr|r}
+	2 & 1 & -1 & 3 \\
+	0 & 3 & -1 & 5 \\
+	0 & 0 & 2 & -10
+\end{array}\!\right) \sim
+\left(\!\begin{array}{rrr|r}
+	1 & 0 & 0 & 1 \\
+	0 & 1 & 0 & 0 \\
+	0 & 0 & 1 & -5
+\end{array}\!\right) \to \vec{x} = \begin{vect} -1 \\ 0 \\ -5 \end{vect} \]
+
+\section{Leontief (\S2.6)}
+\[ \begin{vect} x_1 \\ x_2 \\ x_3 \end{vect} =
+C \begin{vect} x_1 \\ x_2 \\ x_3 \end{vect} +
+\begin{vect} d_1 \\ d_2 \\ d_3 \end{vect} \]
+Hierbij is $\vec{x}$ de vector van producten, $C \vec{x}$ de consumptie en $\vec{d}$ is de export/demand.
+\begin{eqnarray*}
+	\vec{x} &=& C \vec{x} + \vec{d} \\
+	I \vec{x} &=& C \vec{x} + \vec{d} \\
+	(I-C) \vec{x} &=& \vec{d} \\
+	\vec{x} &=& (I-C)^{-1} \vec{d}
+\end{eqnarray*}
+
+\section{Computer graphics (\S2.7)}
+\subsection{Homogene co\"ordinaten}
+Elk punt in $(x, y)$ in $\mathbb{R^2}$ kan als een nieuw punt $(x, y, 1)$ in $\mathbb{R^3}$ worden geschreven. Homogene co\"ordinaten worden niet be\"invloed door vermenigvuldigen met scalars maar wel door vermenigvuldiging met $(3 \times 3)$ matrices.
+
+\paragraph{Voorbeeld} Lineaire transformaties bij homogene co\"ordinaten. De matrix bij de translatie ziet er nu uit als $\begin{pmatrix} A & 0 \\ 0 & 1 \end{pmatrix}$ waarbij $A$ een $(2 \times 2)$ matrix is.
+\begin{eqnarray*}
+	\mbox{Rotatie over de hoek } \varphi &\to& \begin{pmatrix*}[r]
+		\cos \varphi & -\sin \varphi & 0 \\
+		\sin \varphi & \cos \varphi & 0 \\
+		0 & 0 & 1
+	\end{pmatrix*} \\
+	\mbox{Spiegeling door } y = x &\to& \begin{pmatrix}
+		0 & 1 & 0 \\
+		1 & 0 & 0 \\
+		0 & 0 & 1
+	\end{pmatrix} \\
+	\mbox{Translatie van } (x, y) \mbox{ naar } (x+h,y+k) &\to& \begin{pmatrix}
+		1 & 0 & h \\
+		0 & 1 & k \\
+		0 & 0 & 1
+	\end{pmatrix}
+\end{eqnarray*}
+
+\subsection{Homogene 3D co\"ordinaten}
+Hetzelfde principe geldt ook bij co\"ordinaten in 3 dimensies. $(x, y, z)$ in $\mathbb{R^3}$ wordt dan $(x, y, z, 1)$. In het algemeen zijn $(X, Y, Z, H)$ homogene co\"ordinaten voor $(x, y, z)$ als $H \neq 0$ en $x = \frac{X}{H}, y = \frac{Y}{H}, z = \frac{Z}{H}$.
+\paragraph{Voorbeeld} Het co\"ordinaat $(5, -3, 7)$ kan ook uitgedrukt worden met behulp van een homogene co\"ordinaat vermenigvuldigd met een scalar. $(10, -6, 14, 2)$ en $(-15, 9, -21, -3)$ zijn dus synoniem aan $(5, -3, 7)$.

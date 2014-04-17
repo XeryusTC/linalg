@@ -1,0 +1,15 @@
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[xlabel=$x_1$, ylabel=$x_2$, axis x line=middle, axis y line=middle, xmin=-5, ymin=-3, xmax=3, ymax=2.5]
+
+		\addplot [black,-triangle 90] coordinates { (0,0) (2,1) };
+		\node[coordinate, pin=120:{$\begin{vect} 2 \\ 1 \end{vect}$}] at (axis cs:2,1) {};
+	
+		\addplot [black,-triangle 90] coordinates {(2,1) (-4,-2)};
+		\node[coordinate, pin=350:{$\begin{vect} -4 \\ -2 \end{vect}$}] at (axis cs:-4,-2) {};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Vermenigvuldigen grafisch weergeven}
+	\label{fig:vermenigvuldigen}
+\end{figure}

@@ -1,0 +1,8 @@
+\section{Discrete dynamische systemen (\S5.6)}
+\subsection{Predator-prey systemen}
+Je kan de grote van populaties op een tijdstip $k$ aangeven met $\vec{x}_k = \begin{vect} O_k \\ R_k \end{vect}$. $O_k$ geeft het aantal roofdieren aan (in dit geval uilen), $R_k$ geeft het aantal prooidieren aan (in dit geval ratten, gemeten in duizenden). $k$ is gewoonlijk in maanden. De vergelijkingen:
+\[ O_{k+1} = 0.5 O_k + 0.4 R_k \]
+\[ R_{k+1} = -p \cdot O_k + 1.1 R_k \]
+geven de groei aan. Hierbij is de term $-p$ het aantal ratten wat wordt opgegeten door de uilen. 
+\paragraph{Voorbeeld} Voor $p = .104$ geeft eigenwaarden $\lambda_1 = 1.02$ en $\lambda_2 = 0.58$. Bijbehorende eigenvectoren zijn $\vec{v}_1 = \begin{vect} 10 \\ 13 \end{vect}, \vec{v}_2 = \begin{vect} 5 \\ 1 \end{vect}$. De populatie op tijdstip $k$ is dus $\vec{x}_k = c_1 \lambda_1^k \vec{v}_1 + c_2 \lambda_1^k\vec{v}_2 = c_1 (1.02)^k \begin{vect} 10 \\ 13 \end{vect} + c_2 (0.58)^k \begin{vect} 5 \\ 1 \end{vect}$. Als $k \to \infty$ dan $(0.58)^k \to 0$, dus voor alle grote $k$ geldt: $\vec{x}_k \approx c_1(1.02)^k \begin{vect} 10 \\ 13 \end{vect}$, hier uit volgt $\vec{x}_{k+1} \approx 1.02 \vec{x}_k$. Je kunt dus zien dat voor hele grote $k$ de groei gelijk is aan 1.02 voor zowel uilen als ratten, de groei is dus 2\% per maand. De verhoudingen van dieren zijn gelijk aan de waarden in $\vec{v}_1$, dus voor elke 10 uilen zijn er 13 (duizend) ratten.
+

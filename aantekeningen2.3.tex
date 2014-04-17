@@ -1,0 +1,38 @@
+\section{Eigenschappen van $A^{-1}$ (\S2.3)}
+\subsection{Stelling 8: Inverteerbare matrix theorem} \index{Stellingen!Hoofdstuk 2!Stelling 8} \index{Inverteerbare matrix stelling} 12 gelijkwaardige uitspraken, als er \'e\'en geldt dan gelden ze allemaal. Het omgekeerde is ook waar, als \'e\'en niet waar is dan gelden ze allemaal niet. $A$ is hierbij een matrix van $(n \times n)$ grootte.
+\begin{enumerate}
+	\item $A$ is inverteerbaar.
+	\item $A$ is rij equivalent aan de $(n \times n)$ eenheidsmatrix.
+	\item $A$ heeft $n$ pivots.
+	\item $A \vec{x} = \vec{0}$ heeft alleen $\vec{x} = \vec{0}$ als oplossing.
+	\item De kolommen van $A$ zijn lineair onafhankelijk.
+	\item De lineaire transformatie van $A \vec{x}$ is een injectie.
+	\item $A \vec{x} = \vec{b}$ heeft op zijn minst een oplossing voor elke $\vec{b}$ in $\mathbb{R}^n$.
+	\item De kolommen van $A$ spannen $\mathbb{R}^n$ op.
+	\item De lineaire transformatie van $A \vec{x}$ is surjectief voor $\mathbb{R}^n$ naar $\mathbb{R}^n$.
+	\item Er is een $(n \times n)$ matrix $C$ zodat $CA = I$.
+	\item Er is een $(n \times n)$ matrix $D$ zodat $AD = I$.
+	\item $A^T$ is inverteerbaar.
+	\item De determinant van $A \neq 0$. (Stelling 4) \index{Stellingen!Hoofdstuk 3!Stelling 4}
+\end{enumerate}
+
+\paragraph{Voorbeeld}
+$A = \begin{pmatrix*} 1 & 0 & -2 \\
+3 & 1 & -2 \\
+-5 & -1 & 9 \end{pmatrix*}$ Bestaat $A^{-1}$?
+Kijk naar 4. $A \vec{x} = \vec{0}$ all\'e\'en als $\vec{x} = \vec{0}$. $A \vec{x} = \vec{0}$ geeft:
+\[ \left(\!\begin{array}{rrr|r} 1 & 0 & -2 & 0 \\
+3 & 1 & -2 & 0 \\
+-5 & -1 & 9 & 0 \end{array}\!\right) \sim \left(\!\begin{array}{rrr|r} 1 & 0 & -1 & 0 \\
+0 & 1 & 4 & 0 \\
+0 & 0 & 1 & 0 \end{array}\!\right) \to x_3 = 0 \to x_2 = 0 \to x_1 = 0\]
+$\vec{x} = \vec{0}$ is dus de enige oplossing dus $A^{-1}$ bestaat.
+
+\subsection{Toepassing van $A^{-1}$}
+\begin{eqnarray*}
+	T: \vec{x} &\to& A \vec{x} \\
+	&\to& A^{-1}A \vec{x} = \vec{x}
+\end{eqnarray*}
+\[ \left. \begin{array}{ll} T: & \vec{x} \to A \vec{x} \\
+S: & \vec{x} \to A^{-1} \vec{x} \end{array}\right\} \mbox{Zijn elkaars omgekeerde (alleen als} A^{-1} \mbox{bestaat}) \]
+$T$ en $S$ zijn daarom allebei bi-jectief. Het is dus mogelijk om aan te tonen dat $T$ bi-jectief is door aan te tonen dat $A^{-1}$ bestaat.

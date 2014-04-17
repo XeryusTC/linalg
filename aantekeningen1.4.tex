@@ -1,0 +1,73 @@
+\section{Matrix-vector product $A \vec{x} = \vec{b}$ (\S 1.4)}
+Gegeven is 
+\[ \left\{ \begin{array}{r}
+	5x_1 - 2x_2 + x_3 = 7 \\
+	3x_1 + x_2 + 5x_3 = 2 \\
+	2x_1 - 5x_2 = -1 \\
+\end{array} \right. \to \begin{pmatrix*}[r]
+	5 & -2 & 1 \\
+	3 & 1 & 5 \\
+	2 & -5 & 0
+\end{pmatrix*} \begin{vect} x_1 \\ x_2 \\ x_3 \end{vect} = \begin{vect} 7 \\ 2 \\ -1 \end{vect} \]
+De oplossing hiervan is:
+\[ \begin{vect} x_1 \\ x_2 \\ x_3 \end{vect} = \begin{vect} 2 \\ 1 \\ -1 \end{vect} \]
+Je kunt het inproduct gebruiken om dit te controleren:
+\[ \begin{pmatrix*}[r]
+	5 & -2 & 1 \\
+	3 & 1 & 5 \\
+	2 & -5 & 0
+\end{pmatrix*} \begin{vect} 2 \\ 1 \\ -1 \end{vect} =
+\begin{vect}
+	(\begin{array}{ccc} 5 & -2 & 1 \end{array}) \cdot \begin{vect} 2 \\ 1 \\ -1 \end{vect} \\
+	(\begin{array}{ccc} 3 & 1 & 5 \end{array}) \cdot \begin{vect} 2 \\ 1 \\ -1 \end{vect} \\
+	(\begin{array}{ccc} 2 & -5 & 0 \end{array}) \cdot \begin{vect} 2 \\ 1 \\ -1 \end{vect}
+\end{vect} = \begin{vect} 10 - 2 - 1 \\
+6 + 1 - 5 \\
+4 - 5 + 0 \end{vect} = \begin{vect} 7 \\ 2 \\ -1 \end{vect} \]
+
+Ook kun je een lineaire combinatie van de kolommen van de matrix gebruiken om het te controleren:
+\[ 2 \cdot \begin{vect} 5 \\ 3 \\ 2 \end{vect} + 1 \cdot \begin{vect} -2 \\ 1 \\ -5 \end{vect} + (-1) \cdot \begin{vect} 1 \\ 5 \\ 0 \end{vect} = \begin{vect}
+	2 \cdot 5 + 1 \cdot -2 + (-1) \cdot 1 \\
+	2 \cdot 3 + 1 \cdot 1 + (-1) \cdot 5 \\
+	2 \cdot 2 + 1 \cdot -5 + (-1) \cdot 0
+\end{vect} = \begin{vect} 10 - 2 - 1 \\
+	6 + 1 - 5 \\
+	4 - 5 + 0 \end{vect} = \begin{vect} 7 \\ 2 \\ -1 \end{vect} \]
+
+\subsection{Algemene definitie matrix product}
+\begin{eqnarray*} A \vec{x} &=& \begin{pmatrix}
+	\vdots & \vdots & & \vdots \\
+	\vec{a}_1 & \vec{a}_2 & \cdots & \vec{a}_n \\
+	\vdots & \vdots & & \vdots
+\end{pmatrix} \cdot \begin{vect} x_1 \\ x_2 \\ \vdots \\ x_n \end{vect} \\
+&=& \mbox{inproduct van de rijen van A met } \vec{x} \\
+&=& x_1\vec{a}_1 + x_2\vec{a}_2 + \cdots + x_n\vec{a}_n
+\end{eqnarray*}
+Dit laatste heet dus een \emph{lineaire combinatie} \index{lineaire combinatie} van de kolommen van een matrix. Bij het matrix-vector product moet het aantal kolommen van de matrix overeen komen met het aantal componenten van de vector.
+
+\paragraph{Voorbeeld}
+\[A = \begin{pmatrix*}[r] 1 & 2 & -1 \\
+0 & -5 & 3 \end{pmatrix*}, \vec{x} = \begin{vect} 4 \\ 3 \\ 7 \end{vect} \]
+\[ A \vec{x} = \begin{pmatrix*}[r] 1 & 2 & -1 \\
+0 & -5 & 3 \end{pmatrix*}\begin{vect} 4 \\ 3 \\ 7 \end{vect} = \begin{vect} 4+6-7 \\ 0-15+21 \end{vect} = \begin{vect} 3 \\ 6 \end{vect} \]
+
+\subsection{Rekenregels}
+De lineaire operaties:
+\[ A \cdot ( \vec{u} + \vec{v}) = A \vec{u} + A \vec{v} \]
+\[ A \cdot (c \vec{u}) = cA\vec{u} \]
+
+\paragraph{Voorbeeld} $A \cdot ( \vec{u} + \vec{v})$
+\[ \begin{pmatrix}
+	1 & 2 \\
+	3 & 4
+\end{pmatrix} \cdot \left(\! \begin{vect} -1 \\ 2 \end{vect} + \begin{vect} 5 \\ 7 \end{vect} \!\right) = \begin{pmatrix}
+	1 & 2 \\
+	3 & 4
+\end{pmatrix} \cdot \begin{vect} 4 \\ 9 \end{vect} = \begin{vect} 22 \\ 48 \end{vect} \]
+\[ \begin{pmatrix}
+	1 & 2 \\
+	3 & 4
+\end{pmatrix} \cdot \begin{vect} -1 \\ 2 \end{vect} + \begin{pmatrix}
+	1 & 2 \\
+	3 & 4
+\end{pmatrix} \cdot \begin{vect} 5 \\ 7 \end{vect} = \begin{vect} 3 \\ 5 \end{vect} + \begin{vect} 19 \\ 43 \end{vect} = \begin{vect} 22 \\ 48 \end{vect} \]

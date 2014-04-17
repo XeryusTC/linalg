@@ -1,0 +1,110 @@
+\section{Lineaire onafhankelijkheid (\S 1.7)}
+
+\subsection{Definitie}
+\begin{itemize}
+	\item Set $\{\vec{v}_1, \ldots, \vec{v}_p \}$ is \emph{lineair onafhankelijk} \index{lineair onafhankelijk} als $\vec{x} = \vec{0}$ de enige oplossing is van $x_1 \vec{v}_1 + \cdots + \ x_p \vec{v}_p = \vec{0}$.
+	\item Set $\{\vec{v}_1, \ldots, \vec{v}_p \}$ is \emph{lineair afhankelijk} \index{lineair afhankelijk} indien co\"efficienten $c_1, \ldots, c_p$ bestaan die niet allemaal nul zijn zodat $c_1\vec{v}_1 + \cdots + c_p\vec{v}_p = \vec{0}$.
+\end{itemize}
+
+Bij een matrix zijn de kolommen van A lineair onafhankelijk allen als $\vec{x} = \vec{0}$ de enige oplossing is van $A\vec{x} = \vec{0}$.
+\[ A = \begin{pmatrix}
+	\vdots & & \vdots \\
+	\vec{a}_1 & \cdots & \vec{a}_n \\
+	\vdots & & \vdots
+\end{pmatrix} \]
+
+\paragraph{Voorbeeld}
+\[ \vec{v}_1 = \begin{vect} 1 \\ 2 \\ 3 \end{vect}, \vec{v}_2 = \begin{vect} 4 \\ 5 \\ 6 \end{vect}, \vec{v}_3 = \begin{vect} 2 \\ 1 \\ 0 \end{vect} \]
+Vraag: is set $\{\vec{v}_1, \vec{v}_2, \vec{v}_3 \}$ lineair onafhankelijk? Om dit op te beantwoorden zoek je de oplossing van: $x_1\vec{v}_1 + x_2 \vec{v}_2 + x_3 \vec{v}_3 = 0$. Ofwel
+\[ \begin{pmatrix}
+	\vdots & \vdots & \vdots \\
+	\vec{v}_1 & \vec{v}_2 & \vec{v}_3 \\
+	\vdots & \vdots & \vdots
+\end{pmatrix} \begin{vect} x_1 \\ x_2 \\ x_3 \end{vect} = A \vec{x} = \vec{0} \]
+\[ \left(\!\begin{array}{rrr|r}
+	1 & 4 & 2 & 0 \\
+	2 & 5 & 1 & 0 \\
+	3 & 6 & 0 & 0
+\end{array} \!\right) \sim \left(\!\begin{array}{rrr|r}
+	1 & 4 & 2 & 0 \\
+	0 & -3 & -3 & 0 \\
+	0 & 0 & 0 & 0
+\end{array}\!\right) \to x_3 = \mbox{vrij, neem } x_3 = -1 \]
+$\to \vec{v}_3 = x_1 \vec{v}_1 + x_2 \vec{v}_2$ dus $\{\vec{v}_1, \vec{v}_2, \vec{v}_3 \}$ is lineair afhankelijk. Vervolg vraag: hoe zijn ze van elkaar afhankelijk?
+\[ \left(\!\begin{array}{rrr|r}
+	1 & 0 & -2 & 0 \\
+	0 & 1 & 1 & 0 \\
+	0 & 0 & 0 & 0
+\end{array}\!\right) \to \left\{\!\begin{array}{l}
+	x_1 - 2x_3 = 0
+	x_2 + x_3 = 0
+	x_3 = \mbox{vrij}
+\end{array} \right. \to \left\{\!\begin{array}{l}
+	x_1 = 2x_3 \\
+	x_2 = -x_3 \\
+	x+3 = \mbox{vrij} = 2
+\end{array} \right. \to \left\{\!\begin{array}{l}
+	x_1 = 4 \\
+	x_2 = -2 \\
+	x_3 = 2
+\end{array} \right. \]
+\[ \to 4 \vec{v_1} - 2 \vec{v_2} + 2 \vec{v_3} = 0 \]
+
+\paragraph{Voorbeeld} Zijn kolommen van $A = \begin{pmatrix*}[r]
+	0 & 1 & 4 \\
+	1 & 2 & -1 \\
+	5 & 8 & 0
+\end{pmatrix*}$ lineair onafhankelijk?
+Oplossing van $A \vec{x} = \vec{0}$:
+\[ \left(\!\begin{array}{rrr|r}
+	0 & 1 & 4 & 0 \\
+	1 & 2 & -1 & 0 \\
+	5 & 8 & 0 & 0
+\end{array}\!\right) \sim \left(\!\begin{array}{rrr|r}
+	1 & 2 & -1 & 0 \\
+	0 & 1 & 4 & 0 \\
+	0 & 0 & 1 & 0
+\end{array} \!\right) \to x_3 = 0 \to x_2 = 0 \to x_1 = 0 \]
+Omdat er geen vrije variabelen zijn is $\vec{x} = \vec{0}$ de enige mogelijke oplossing en dus zijn de kolommen onafhankelijk!
+
+\paragraph{Voorbeeld}
+\[\vec{u} = \begin{vect} 0 \\ 2 \\ 3 \end{vect}, \vec{v} = \begin{vect} 0 \\ 0 \\ -8 \end{vect}, \vec{w} = \begin{vect} -1 \\ 3 \\ 1 \end{vect} \]
+3 Vragen die hetzelfde betekenen: \begin{itemize}
+	\item is $\{ \vec{u}, \vec{v}, \vec{w} \}$ lineair afhankelijk?
+	\item zit $\vec{w}$ in span $\{\vec{u}, \vec{v}\}$?
+	\item is $\vec{w}$ een \emph{lineaire combinatie} van $\vec{u}$ en $\vec{v}$? \index{lineaire combinatie}
+\end{itemize}
+Dus geldt $c_1 \vec{u} + c_2 \vec{v} + c_3 \vec{w} = 0$?
+\[ c_1 \begin{vect} 0 \\ 2 \\ 3 \end{vect} + c_2 \begin{vect} 0 \\ 0 \\ -8 \end{vect} + c_3 \begin{vect} -1 \\ 3 \\ 1 \end{vect} = \begin{vect} 0 \\ 0 \\ 0 \end{vect} \]
+uit $c_1 \cdot 0 + c_2 \cdot 0 + c_3 \cdot -1 = 0$ volgt dat $c_3 = 0$. Vervolgens kan je ook $c_1 = 0$ en $c_2 = 0$ afleiden. Uit de 2e definitie volgt dan dat $\{ \vec{u}, \vec{v}, \vec{w} \}$ lineair onafhankelijk is.
+
+\paragraph{Hetzelfde als matrix} $A \vec{x} = \vec{0}$ met $A = \begin{pmatrix}
+	\vdots & \vdots & \vdots \\
+	\vec{u} & \vec{v} & \vec{w} \\
+	\vdots & \vdots & \vdots
+\end{pmatrix} $
+
+\[ \left(\! \begin{array}{rrr|r}
+	0 & 0 & -1 & 0 \\
+	2 & 0 & 3 & 0 \\
+	3 & -8 & 1 & 0
+\end{array}\!\right) \sim \left(\! \begin{array}{rrr|r}
+	1 & 0 & 1\sfrac{1}{2} & 0 \\
+	0 & 1 & \sfrac{7}{16} & 0 \\
+	0 & 0 & 1 & 0
+\end{array} \right)\! \to \left\{\! \begin{array}{r}
+	x_1 = -1\sfrac{1}{2} x_3 \\
+	x_2 = -\sfrac{7}{16} x_3 \\
+	x_3 = 0
+\end{array} \right. \to \left\{\! \begin{array}{r}
+	x_1 = 0 \\
+	x_2 = 0 \\
+	x_3 = 0
+\end{array} \right. \to \vec{x} = \begin{vect} 0 \\ 0 \\ 0 \end{vect} = \vec{0} \]
+
+\subsection{Matrices met meer kolommen dan rijen}
+\[A = \begin{pmatrix*}[r]
+	2 & 4 & -2 \\
+	1 & -1 & 2
+\end{pmatrix*} \]
+De matrix $A$ heeft 2 rijen ($n = 2$) en 3 kolommen ($p = 3$). Matrixen waarbij $p > n$ zijn altijd lineair afhankelijk. In andere woorden: $\{ \vec{v}_1, \ldots, \vec{v}_p \}$ in $\mathbb{R}^n$ is lineair afhankelijk als $p > n$.

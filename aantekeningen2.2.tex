@@ -1,0 +1,99 @@
+\section{Inverse matrix (\S2.2)}
+Gegeven $A$ is inverteerbaar als $B$ bestaat zodanig dat $BA = I$ \'en $AB=I$
+\subsection{Notatie}
+$A^{-1}$ of $A^{\mbox{inv}}$. Hier heeft $A^{-1}$ de voorkeur.
+
+\paragraph{Voorbeeld}
+\[ A = \begin{pmatrix*}[r] 2 & 5 \\ -3 & -7 \end{pmatrix*}, A^{-1} = \begin{pmatrix*}[r] -7 & -5 \\ 3 & 2 \end{pmatrix*} \]
+
+\[AA^{-1} = \begin{pmatrix*}[r] 2 & 5 \\ -3 & -7 \end{pmatrix*} \begin{pmatrix*}[r] -7 & -5 \\ 3 & 2 \end{pmatrix*} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \]
+\[A^{-1}A = \begin{pmatrix*}[r] -7 & -5 \\ 3 & 2 \end{pmatrix*} \begin{pmatrix*}[r] 2 & 5 \\ -3 & -7 \end{pmatrix*} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \]
+
+\subsection{Formule voor $(2 \times 2)$ matrix}\label{sec:2x2formule}
+\[A = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \]
+De diagonaal van $a$ naar $d$ heet de \emph{hoofddiagonaal} \index{hoofddiagonaal} en de diagonaal van $b$ naar $c$ heet de \emph{nevendiagonaal} \index{nevendiagonaal}. Je kunt de inverse van een $(2 \times 2)$ matrix met de volgende stappen berekenen:
+\begin{enumerate}
+	\item Vermenigvuldig de nevendiagonaal met $-1$.
+	\item Spiegel de hoofddiagonaal in de nevendiagonaal.
+\end{enumerate}
+\[A^{-1} = \frac{1}{ad - cb} \begin{pmatrix*}[r] d & -b \\ -c & a \end{pmatrix*} \]
+Hier heet het stukje $ad - cb$ de \emph{determinant} \index{determinant}. Dit in hoofdstuk 3 %TODO link hier later naar
+verder naar voren.
+
+\paragraph{Voorbeeld}
+\[ A = \begin{pmatrix*}[r] 2 & 5 \\ -3 & -7 \end{pmatrix*} \]
+\[ A^{-1} = \begin{pmatrix*} -7 & -5 \\ 3 & 2 \end{pmatrix*} \cdot \frac{1}{\mbox{det}} \]
+\[ \mbox{det} = 2 \cdot -7 - -3 \cdot 5 = -14 + 15 = 1 \]
+
+\paragraph{Voorbeeld}
+\[ A = \begin{pmatrix} 3 & 4 \\ 6 & 8 \end{pmatrix} \to \mbox{det} = 3 \cdot 8 - 6 \cdot 4 = 0 \]
+Er is dus geen inverse. De rijen in deze matrix zijn afhankelijk!
+
+\paragraph{Voorbeeld} Bij een matrix met alleen getallen op de hoofddiagonaal kan je de inverse op de volgende manier makkelijk berekenen:
+\[ D = \begin{pmatrix} 4 & 0 \\ 0 & 3 \end{pmatrix} \to D^{-1} = \begin{pmatrix*}[r] 4^{-1} & 0 \\ 0 & 3^{-1} \end{pmatrix*} = \begin{pmatrix} \sfrac{1}{4} & 0 \\ 0 & \sfrac{1}{3} \end{pmatrix} \]
+
+\subsection{Inverse}
+\[ A \cdot A^{-1} = I, A^{-1} \cdot A = I \]
+\paragraph{Stelling 5} \index{Stellingen!Hoofdstuk 2!Stelling 5} Indien de inverse bestaat: $A \vec{x} = \vec{b} \Leftrightarrow \vec{x} = A^{-1} \vec{b}$
+
+Bewijs:
+\[ \Rightarrow A \vec{x} = \vec{b} \to A^{-1}A \vec{x} = A^{-1} \vec{b} \to I \vec{x} = A^{-1} \vec{b} \to \vec{x} = A^{-1} \vec{b} \]
+\[ \Leftarrow \vec{x} = A^{-1} \vec{b} \to A \vec{x} = AA^{-1} \vec{b} \to A \vec{x} = I \vec{b} \to A \vec{x} = \vec{b} \]
+
+\paragraph{Voorbeeld}
+\[ \left\{\begin{array}{l} 3x_1 + 4x_2 = 3 \\
+5x_1 + 6x_2 = 7
+\end{array}\right. \]
+Oplossing 1: \[ \left(\!\begin{array}{rr|r} 3 & 4 & 3 \\
+5 & 6 & 7 \end{array}\!\right) \sim \left(\!\begin{array}{rr|r} 1 & 0 & 5 \\
+0 & 1 & -3 \end{array}\!\right) \to \vec{x} = \begin{vect} 5 \\ -3 \end{vect} \]
+Oplossing 2: $A^{-1}$ uitrekenen. \[A^{-1} \vec{b} = \frac{1}{3 \cdot 6 - 5 \cdot 4} \begin{pmatrix} 6 & -4 \\
+-5 & 3 \end{pmatrix} \begin{vect} 3 \\ 7 \end{vect} = -\frac{1}{2} \begin{vect} -10 \\ 6 \end{vect} = \begin{vect} 5 \\ -3 \end{vect} \]
+
+\subsubsection{Eigenschappen $A^{-1}$}
+\begin{enumerate}
+	\item $(A^{-1})^{-1} = A$
+	\item $(AB)^{-1} = B^{-1}A^{-1}$ Omdat:
+	\begin{eqnarray*}
+		(AB)(AB)^{-1} &=& I \\
+		(AB)(B^{-1}A^{-1}) &=& I \\
+		A(BB^{-1})A^{-1} &=& AIA^{-1} \\
+		&=& AA^{-1} \\
+		&=& I
+	\end{eqnarray*}
+\end{enumerate}
+
+\subsection{Hoe vindt je $A^{-1}$ in het algemeen?}
+Via de regel in \autoref{sec:2x2formule}: \[ A = \begin{pmatrix} 2 & 1 \\
+1 & 1 \end{pmatrix} \to A^{-1} = \begin{pmatrix*}[r] 1 & -1 \\
+-1 & 2 \end{pmatrix*} \]
+Of de algemene methode:
+\[ A \left(\!\begin{array}{rr|rr} 2 & 1 & 1 & 0 \\
+1 & 1 & 0 & 1\end{array}\!\right) I \sim \left(\!\begin{array}{rr|rr} 1 & 0 & 1 & -1 \\
+1 & 1 & 0 & 1\end{array}\!\right) \sim I \left(\!\begin{array}{rr|rr} 1 & 0 & 1 & -1 \\
+0 & 1 & -1 & 2 \end{array}\!\right) A^{-1} \]
+Dit geldt voor matrices van elke grote.
+
+\paragraph{Voorbeeld}
+\[ \left(\!\begin{array}{rrr|rrr} 2 & 1 & 0 & 1 & 0 & 0 \\
+1 & 1 & 1 & 0 & 1 & 0 \\
+0 & 0 & 1 & 0 & 0 & 1 \end{array}\!\right) \sim \left(\!\begin{array}{rrr|rrr} 2 & 1 & 0 & 1 & 0 & 0 \\
+1 & 1 & 0 & 0 & 1 & -1 \\
+0 & 0 & 1 & 0 & 0 & 1 \end{array}\!\right) \sim \left(\!\begin{array}{rrr|rrr} 1 & 0 & 0 & 1 & -1 & 1 \\
+1 & 1 & 0 & 0 & 1 & -1 \\
+0 & 0 & 1 & 0 & 0 & 1 \end{array}\!\right) \] 
+\[ \sim \left(\!\begin{array}{rrr|rrr} 1 & 0 & 0 & 1 & -1 & 1 \\
+0 & 1 & 0 & -1 & 2 & -2 \\
+0 & 0 & 1 & 0 & 0 & 1 \end{array}\!\right) \]
+
+$A^{-1}$ Bestaat niet als $A$ niet naar $I$ schoongeveegd kan worden. Bewijs: Elementaire matrix $E_1 = \begin{pmatrix*}[r] 1 & 0 & 0 \\
+0 & 1 & 0 \\
+-4 & 0 & 1 \end{pmatrix*}$ Waarbij $\mbox{rij} 3 - 4 \cdot \mbox{rij} 1$. $E_1^{-1}$ bestaat omdat rij operaties omkeerbaar zijn.
+\begin{eqnarray*}
+	A &|& I \\
+	E_1A &|& E_1I \\
+	E_2E_1A &|& E_2E_1I \\
+	E_p \ldots E_1A &|& E_p \ldots E_1I \quad E_p \ldots E_1 = A^{-1} \\
+	A^{-1}A &|& A^{-1}I \\
+	I &|& A^{-1}
+\end{eqnarray*}

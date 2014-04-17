@@ -1,0 +1,79 @@
+\section{Diagonalisatie (\S5.3)}
+\paragraph{Voorbeeld} $A^k$ uitrekengen:
+\[D = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix} \to D^k = \begin{pmatrix} 2^k & 0 \\ 0 & 3^k \end{pmatrix} \]
+
+\paragraph{Voorbeeld} Geen diagonaal matrix? $A = \begin{pmatrix*}[r] 7 & 2 \\ -4 & 1 \end{pmatrix*}, D = \begin{pmatrix} 5 & 0 \\ 0 & 3 \end{pmatrix}, P = \begin{pmatrix*} 1 & 1 \\ -1 & -2 \end{pmatrix*}$
+Diagonaliseren: $A = P \cdot D \cdot P^{-1}$
+\begin{eqnarray*}
+	\begin{pmatrix*}[r] 7 & 2 \\ -4 & 1 \end{pmatrix*} &=& \begin{pmatrix*}[r] 1 & 1 \\ -1 & -2 \end{pmatrix*} \begin{pmatrix} 5 & 0 \\ 0 & 3 \end{pmatrix} \begin{pmatrix*}[r] -2 & -1 \\ 1 & 1\end{pmatrix*} \cdot \frac{1}{-1} \\
+	&=& \begin{pmatrix*}[r] 1 & 1 \\ -1 & -2 \end{pmatrix*} \begin{pmatrix} 5 & 0 \\ 0 & 3 \end{pmatrix} \begin{pmatrix*}[r] 2 & 1 \\ -1 & -1\end{pmatrix*} \\
+	&=& \begin{pmatrix*}[r] 5 & 3 \\ -5 & -6 \end{pmatrix*} \begin{pmatrix*}[r] 2 & 1 \\ -1 & -1\end{pmatrix*} \\
+	&=& \begin{pmatrix*}[r]	7 & 2 \\ -4 & 1 \end{pmatrix*}
+\end{eqnarray*}
+
+$A^2 = PDP^{-1} \cdot PDP^{-1} = PDIDP^{-1} = PDDP^{-1} = PD^2P^{-1}$
+
+In het algemeen: $A^k = PD^kP^{-1}$
+
+\subsection{Hoe bereken je P en D?}
+Voor alle matrices die $(n \times n)$ groot zijn.
+\paragraph{Stelling 5:}\index{Stellingen!Hoofdstuk 5!Stelling 5} diagonalisatie van $A$ is mogelijk als $A$ $n$ lineair onafhankelijke eigenvectoren heeft.
+\[ A = PDP^{-1} \mbox{ met } D = \begin{pmatrix}
+	\lambda_1 & & & \sigma \\
+	& \lambda_2 & & \\
+	& & \ddots & \\
+	\sigma & & & \lambda_n
+\end{pmatrix} \mbox{ en } P = \begin{pmatrix}
+	\vdots & \vdots & & \vdots \\
+	\vec{v}_1 & \vec{v}_2 & \cdots & \vec{v}_n \\
+	\vdots & \vdots && \vdots
+\end{pmatrix} \]
+
+\paragraph{Stelling 6:}\index{Stellingen!Hoofdstuk 5!Stelling 6}
+\begin{enumerate}
+	\item $n$ verschillende $\lambda$'s: $A$ kan gediagonaliseerd worden
+	\item bij aantal $\lambda<n$: soms toch $n$ eigenvectoren en dan kan je toch diagonaliseren.
+\end{enumerate}
+
+\paragraph{Voorbeeld} Diagonaliseer $A = \begin{pmatrix*} 7 & 2 \\ -4 & 1 \end{pmatrix*} = PDP^{-1}$.
+
+\subparagraph{$\lambda$'s uitrekenen}
+\[ \mbox{det} \begin{pmatrix}
+	7 - \lambda & 2 \\
+	-4 & 1 = \lambda
+\end{pmatrix} = (7-\lambda)(1-\lambda)--4 \cdot 2 = \lambda^2 - 8 \lambda + 15 = (\lambda -5)(\lambda -3) = 0 \]
+$\lambda_1 =5, \lambda_2 = 3$
+
+\subparagraph{Eigenvector bij $\lambda_1=5$}
+$A \vec{x} = \lambda \vec{x}$
+\begin{eqnarray*}
+	(A - \lambda I) \vec{x} = 0 \to \begin{pmatrix*}[r] 2 & 2 \\ -4 & -4 \end{pmatrix*} \begin{vect} x_1 \\ x_2 \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \\
+	\sim \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix} \begin{vect} x_1 \\ x_2 \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \to x_1 + x_2 = 0 \to x_1 = -x_2
+\end{eqnarray*}
+
+Eigenvector $\vec{v}_1: \begin{vect} -x_2 \\ x_2 \end{vect} \to \begin{vect} 1 \\ -1 \end{vect}$
+
+\subparagraph{Eigenvector bij $\lambda_2 = 3$}
+\begin{eqnarray*}
+	(A - \lambda I) \vec{x} = 0 \to \begin{pmatrix*}[r] 4 & 2 \\ -4 & -2 \end{pmatrix*} \begin{vect} x_1 \\ x_2 \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \\
+	\sim \begin{pmatrix} 2 & 1 \\ 0 & 0 \end{pmatrix} \begin{vect} x_1 \\ x_2 \end{vect} &=& \begin{vect} 0 \\ 0 \end{vect} \to 2x_1 + x_2 = 0 \to x_2 = -2x_1
+\end{eqnarray*}
+
+Eigenvector $\vec{v}_2: \begin{vect} x_1 \\ -2x_1 \end{vect} \to \begin{vect} 1 \\ -2 \end{vect}$
+\[ D = \begin{pmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{pmatrix} = \begin{pmatrix} 5 & 0 \\ 0 & 3 \end{pmatrix}, P = \begin{pmatrix} \vdots & \vdots \\ \vec{v}_1 & \vec{v}_2 \\ \vdots & \vdots \end{pmatrix} = \begin{pmatrix*}[r] 1 & 1 \\ -1 & -2 \end{pmatrix*} \]
+\begin{eqnarray*}
+	A = \begin{pmatrix*}[r] 7 & 2 \\ -4 & 1 \end{pmatrix*} &=& \begin{pmatrix*}[r] 1 & 1 \\ -1 & -2 \end{pmatrix*} \begin{pmatrix} 5 & 0 \\ 0 & 3 \end{pmatrix} \begin{pmatrix*}[r] 1 & 1 \\ -1 & -2 \end{pmatrix*}^{-1} \\
+	&=& \begin{pmatrix*}[r] 1 & 1 \\ -2 & -1 \end{pmatrix*} \begin{pmatrix} 3 & 0 \\ 0 & 5 \end{pmatrix} \begin{pmatrix*}[r] 1 & 1 \\ -2 & -1 \end{pmatrix*}^{-1}
+\end{eqnarray*}
+
+\paragraph{Voorbeeld} $(3 \times 3 ) \quad A = \begin{pmatrix*}[r] 1 & 3 & 3 \\ -3 & -5 & -3 \\ 3 & 3 & 1 \end{pmatrix*} \to$ eigenwaarden: $\lambda_1 = 1, \lambda_2 = -2, \lambda_3 = -2$ eigenvectoren: $\vec{v}_1 = \begin{vect} 1 \\ -1 \\ 1 \end{vect}, \vec{v}_2 = \begin{vect} -1 \\ 1 \\ 0 \end{vect}, \vec{v}_3 = \begin{vect} -1 \\ 0 \\ 1 \end{vect}$
+\[ A = \begin{pmatrix*}[r] 1 & 3 & 3 \\ -3 & -5 & -3 \\ 3 & 3 & 1 \end{pmatrix*} = \begin{pmatrix*}[r] 1 & -1 & -1 \\ -1 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix*} \begin{pmatrix*}[r] 1 & 0 & 0 \\ 0 & -2 & 0 \\ 0 & 0 & -2 \end{pmatrix*} \begin{pmatrix*}[r] 1 & -1 & -1 \\ -1 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix*}^{-1} \]
+
+\paragraph{Voorbeeld} $A = \begin{pmatrix*}[r] 1 & 3 & 3 \\ -3 & -5 & -3 \\ 3 & 3 & 1 \end{pmatrix*} \to$ eigenwaarden: $\lambda_1 =1, \lambda_2 = \lambda_3 = -2$ eigenvectoren: $\vec{v}_1 = \begin{vect} 1 \\ -1 \\ 1 \end{vect}, \vec{v}_2 = \begin{vect} -1 \\ 1 \\ 0 \end{vect}$. Er zijn te weinig eigenvectoren voor diagonalisatie.
+
+\paragraph{Voorbeeld}
+\[ \vec{x}_0 = \begin{vect} 0.6 \\ 0.4 \end{vect}, A = \begin{pmatrix} 0.95 & 0.03 \\ 0.05 & 0.97 \end{pmatrix}, \vec{x}_{k+1} = A \vec{x}_k \]
+\[ \to \lambda_1 = 1, \lambda_2 = 0.92, \vec{v}_1 = \begin{vect} 3 \\ 5 \end{vect}, \vec{v}_2 = \begin{vect} 1 \\ -1 \end{vect} \]
+\[ A^k = PD^kP^{-1} = \begin{pmatrix*}[r] 3 & 1 \\ 5 & -1 \end{pmatrix*} \begin{pmatrix} 1^k & 0 \\ 0 & 0.92^k \end{pmatrix} \begin{pmatrix} -1 & -1 \\ -5 & 3 \end{pmatrix} \cdot \frac{1}{-8} \]
+\[ A^\infty = \begin{pmatrix*}[r] 3 & 1 \\ 5 & -1 \end{pmatrix*} \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} -1 & -1 \\ -5 & 3 \end{pmatrix} \cdot \frac{1}{-8} = \begin{pmatrix} 3 & 3 \\ 5 & 5 \end{pmatrix} \cdot \frac{1}{8} \]
+\[ A^\infty \begin{vect} 0.6 \\ 0.4 \end{vect} = \begin{vect} \sfrac{3}{8} \\ \sfrac{5}{8} \end{vect} \]

@@ -1,0 +1,4 @@
+pdflatex aantekeningen
+pdflatex aantekeningen
+makeindex aantekeningen
+pdflatex aantekeningen
