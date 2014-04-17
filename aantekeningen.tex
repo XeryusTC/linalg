@@ -1,7 +1,5 @@
 \documentclass[a4paper]{article}
 
-\usepackage{fullpage}
-
 \usepackage[colorlinks,pdflang=nl,hidelinks]{hyperref}
 %\usepackage[colorlinks,pdflang=nl]{hyperref}
 \usepackage[all]{hypcap} %fix hyperref's image linking
@@ -20,6 +18,28 @@
 \pgfplotsset{compat=newest}
 
 \usepackage[dutch]{babel}
+%\usepackage[left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{fullpage}
+
+% page headers
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\textit{ \nouppercase{\leftmark}} }
+\fancyhead[LO]{\textit{ \nouppercase{\rightmark}} }
+
+\fancyfoot[LE,LO]{This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by-sa/4.0/}}
+
+\fancypagestyle{plain}{ %
+  \fancyhf{} % remove everything
+  \renewcommand{\headrulewidth}{0pt} % remove lines as well
+  \renewcommand{\footrulewidth}{0pt}
+}
 
 %Title
 \title{Aantekeningen lineaire algebra}
@@ -35,11 +55,25 @@
 \pagenumbering{Roman}
 %\twocolumn
 \maketitle
+
+\section*{Acknowledgements and license}
+This document has been created by Xeryus Stokkel following the course of Linear Algebra at the University of Groningen. This document is based on notes made during the lectures given by Marc Verheijen and the fourth edition of the book `Linear Algebra and its applications' by David C. Lay, published by Pearson in 2012.
+
+This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0). To view a copy of this license, visit \url{http://creativecommons.org/licenses/by-sa/4.0/}. This means that you are free to share and adapt: copy and redistribute the material in any medium or format; and remix, transform and build upon the material for any purpose, even commercially. These rights cannot be revoked by the licensor as long as you follow the license terms. The terms are as follows:
+\begin{description}
+	\item[Attribution] You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+	\item[ShareAlike] If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+	\item[No additional restrictions] You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+\end{description}
+
+You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation. No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.
+
 \tableofcontents
 %\onecolumn
 \clearpage
 
 \pagenumbering{arabic}
+
 \input{aantekeningen1.1}
 \input{aantekeningen1.4}
 \input{aantekeningen1.10}
